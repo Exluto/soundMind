@@ -127,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     break5Across = loadForegroundOverlayTemplate("Break5Across")
     breakDiagonal = loadForegroundOverlayTemplate("BreakDiagonal")
     
-    coinAnimation = setupAnimationWithPrefix("powerup05_", start: 1, end: 6, timePerFrame: 0.083)
+    coinAnimation = setupAnimationWithPrefix("powerup05_", start: 1, end: 6, timePerFrame: 0.15)
     coinSpecialAnimation = setupAnimationWithPrefix("powerup01_", start: 1, end: 1, timePerFrame: 0.083)
     
     coin5Across = loadForegroundOverlayTemplate("Coin5Across")
