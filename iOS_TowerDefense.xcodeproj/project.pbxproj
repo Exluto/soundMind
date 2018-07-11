@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B45F4E0D20F6CF9F004553D5 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45F4E0C20F6CF9F004553D5 /* SoundManager.swift */; };
+		B45F4E0F20F6CFE1004553D5 /* sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = B45F4E0E20F6CFE1004553D5 /* sound1.wav */; };
 		B8FD65D920E1A326004116D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FD65D820E1A326004116D2 /* AppDelegate.swift */; };
 		B8FD65DB20E1A326004116D2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B8FD65DA20E1A326004116D2 /* GameScene.sks */; };
 		B8FD65DD20E1A326004116D2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B8FD65DC20E1A326004116D2 /* Actions.sks */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B45F4E0C20F6CF9F004553D5 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		B45F4E0E20F6CFE1004553D5 /* sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound1.wav; sourceTree = "<group>"; };
 		B8FD65D520E1A326004116D2 /* iOS_TowerDefense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_TowerDefense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FD65D820E1A326004116D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8FD65DA20E1A326004116D2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -65,10 +69,12 @@
 				B8FD65DC20E1A326004116D2 /* Actions.sks */,
 				B8FD65DE20E1A326004116D2 /* GameScene.swift */,
 				B8FD65E020E1A326004116D2 /* GameViewController.swift */,
+				B45F4E0E20F6CFE1004553D5 /* sound1.wav */,
 				B8FD65E220E1A327004116D2 /* Main.storyboard */,
 				B8FD65E520E1A32E004116D2 /* Assets.xcassets */,
 				B8FD65E720E1A32E004116D2 /* LaunchScreen.storyboard */,
 				B8FD65EA20E1A32E004116D2 /* Info.plist */,
+				B45F4E0C20F6CF9F004553D5 /* SoundManager.swift */,
 			);
 			path = iOS_TowerDefense;
 			sourceTree = "<group>";
@@ -135,6 +141,7 @@
 				B8FD65DB20E1A326004116D2 /* GameScene.sks in Resources */,
 				B8FD65E620E1A32E004116D2 /* Assets.xcassets in Resources */,
 				B8FD65E920E1A32E004116D2 /* LaunchScreen.storyboard in Resources */,
+				B45F4E0F20F6CFE1004553D5 /* sound1.wav in Resources */,
 				B8FD65DD20E1A326004116D2 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8FD65DF20E1A326004116D2 /* GameScene.swift in Sources */,
+				B45F4E0D20F6CF9F004553D5 /* SoundManager.swift in Sources */,
 				B8FD65E120E1A326004116D2 /* GameViewController.swift in Sources */,
 				B8FD65D920E1A326004116D2 /* AppDelegate.swift in Sources */,
 			);
