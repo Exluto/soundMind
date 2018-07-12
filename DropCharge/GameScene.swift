@@ -65,7 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   var lastUpdateTimeInterval: TimeInterval = 0
   var deltaTime: TimeInterval = 0
-  var lives = 3
+  var lives = 1
   var maxY: CGFloat = 0.0
   
   
@@ -106,8 +106,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    playerAnimationJump = setupAnimationWithPrefix("player01_jump_", start: 1, end: 1, timePerFrame: 0.1)
-    playerAnimationFall = setupAnimationWithPrefix("player01_fall_", start: 1, end: 1, timePerFrame: 0.1)
+    playerAnimationJump = setupAnimationWithPrefix("player01_jump_", start: 1, end: 3, timePerFrame: 0.1)
+    playerAnimationFall = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: 0.1)
    // playerAnimationSteerLeft = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 1, timePerFrame: 0.1)
    // playerAnimationSteerRight = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 1, timePerFrame: 0.1)
   }
