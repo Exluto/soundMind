@@ -385,13 +385,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     switch other.categoryBitMask {
     case PhysicsCategory.CoinNormal:
-      if let coin = other.node as? SKSpriteNode {
+      if (other.node as? SKSpriteNode) != nil {
     
         jumpPlayer()
         run(soundCoin)
       }
     case PhysicsCategory.CoinSpecial:
-      if let coin = other.node as? SKSpriteNode {
+      if (other.node as? SKSpriteNode) != nil {
 
         boostPlayer()
         run(soundBoost)
@@ -447,7 +447,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // 1
     let cameraTarget = convert(player.position, from: fgNode)
     // 2
-    var targetPositionY = cameraTarget.y - (size.height * 0.10)
+    let targetPositionY = cameraTarget.y - (size.height * 0.10)
   
    
     // 3
