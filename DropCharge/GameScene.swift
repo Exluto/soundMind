@@ -34,6 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var backgroundOverlayTemplate: SKNode!
   var backgroundOverlayHeight: CGFloat!
   var player: SKSpriteNode!
+  var deathwall: SKSpriteNode!
   
   var platform5Across: SKSpriteNode!
   var coinArrow: SKSpriteNode!
@@ -67,6 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var deltaTime: TimeInterval = 0
   var lives = 1
   var maxY: CGFloat = 0.0
+  var posWall: CGFloat = 1200.0
   
   
   // Sound Effects
@@ -119,6 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     backgroundOverlayHeight = backgroundOverlayTemplate.calculateAccumulatedFrame().height
     fgNode = worldNode.childNode(withName: "Foreground")!
     player = fgNode.childNode(withName: "Player") as! SKSpriteNode
+    deathwall = fgNode.childNode(withName: "Deathwall") as! SKSpriteNode
     fgNode.childNode(withName: "Bomb")?.run(SKAction.hide())
 
     
@@ -172,6 +175,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    
   }
   
+  func setupDeathwall() {
+    deathwall.physicsBody = SKPhysicsBody(circleOfRadius: deathwall.size.width)
+    deathwall.physicsBody!.isDynamic = false
+
+    
+    
+  }
+  
   func setupCoreMotion() {
     motionManager.accelerometerUpdateInterval = 0.2
     let queue = OperationQueue()
@@ -210,8 +221,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let platformPercentage = 60
     
     if Int.random(min: 1, max: 100) <= platformPercentage {
-      if Int.random(min: 1, max: 100) <= 75 {
-        // Create standard platforms 75%
+      if Int.random(min: 1, max: 100) <= 50 {
+        // Create standard platforms 50%
         switch Int.random(min: 0, max: 3) {
         case 0:
           overlaySprite = platformArrow
@@ -226,7 +237,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           overlaySprite = platformArrow
         }
       } else {
-        // Create breakable platforms 25%
+        // Create breakable platforms 50%
         switch Int.random(min: 0, max: 3) {
         case 0:
           overlaySprite = breakArrow
@@ -372,15 +383,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func jumpPlayer() {
     setPlayerVelocity(650)
+    posWall += 10
+  }
+  func slowPlayer() {
+    setPlayerVelocity(200)
+    posWall -= 30
   }
   
   func boostPlayer() {
     setPlayerVelocity(1200)
-
+    posWall += 40
   }
   
   func superBoostPlayer() {
     setPlayerVelocity(1700)
+   // posWall += 100
   }
   
   func didBegin(_ contact: SKPhysicsContact) {
@@ -394,7 +411,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     case PhysicsCategory.CoinSpecial:
       if (other.node as? SKSpriteNode) != nil {
-        lives -= 1
         print(lives)
         
 
@@ -403,21 +419,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     case PhysicsCategory.PlatformNormal:
       if let platform = other.node as? SKSpriteNode {
-        if player.physicsBody!.velocity.dy < 0 {
           platformAction(platform, breakable: false)
           jumpPlayer()
           platform.removeFromParent()
           run(soundJump)
-        }
       }
     case PhysicsCategory.PlatformBreakable:
       if let platform = other.node as? SKSpriteNode {
-        if player.physicsBody!.velocity.dy < 0 {
           platformAction(platform, breakable: true)
-          jumpPlayer()
+          slowPlayer()
           platform.removeFromParent()
-          run(soundBrick)
-        }
+
+
       }
     default:
       break
@@ -480,7 +493,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   func updatePlayer() {
     
     setPlayerVelocity(350)
-    let deathY = maxY - 1000
+    let deathY = maxY - posWall
+    
+    posWall -= 0.25
+    
+    deathwall.position.y = deathY
+    
+    if(posWall < (0 + player.size.height)){
+      gameOver()
+    }
+    
+    if(posWall > 1200){
+      posWall = 1200
+    }
     
     if(lives < 0){
       gameOver()
