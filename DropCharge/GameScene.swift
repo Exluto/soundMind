@@ -392,6 +392,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     case PhysicsCategory.CoinSpecial:
       if (other.node as? SKSpriteNode) != nil {
+        lives -= 1
+        print(lives)
+        
 
         boostPlayer()
         run(soundBoost)
@@ -401,6 +404,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if player.physicsBody!.velocity.dy < 0 {
           platformAction(platform, breakable: false)
           jumpPlayer()
+          platform.removeFromParent()
           run(soundJump)
         }
       }
@@ -409,6 +413,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if player.physicsBody!.velocity.dy < 0 {
           platformAction(platform, breakable: true)
           jumpPlayer()
+          platform.removeFromParent()
           run(soundBrick)
         }
       }
@@ -492,7 +497,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       playerState = .fall
     } else if player.physicsBody!.velocity.dy > CGFloat(0.0) && playerState != .jump {
       playerState = .jump
-      print("Jumping.")
     }
     // Animate player
     if playerState == .jump {
