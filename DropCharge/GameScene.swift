@@ -479,7 +479,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func updatePlayer() {
     
-    
+    setPlayerVelocity(350)
     let deathY = maxY - 1000
     
     if(lives < 0){
