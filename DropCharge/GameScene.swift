@@ -490,7 +490,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     if(player.position.y < deathY){
-      gameOver()
+      lives -= 1
+      superBoostPlayer()
     }
     // Set velocity based on core motion
     player.physicsBody?.velocity.dx = xAcceleration * 1000.0
