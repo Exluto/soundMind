@@ -476,6 +476,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func updatePlayer() {
+    
+    if(lives < 0){
+      gameOver()
+    }
     // Set velocity based on core motion
     player.physicsBody?.velocity.dx = xAcceleration * 1000.0
     
