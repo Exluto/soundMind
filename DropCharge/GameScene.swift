@@ -66,6 +66,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var lastUpdateTimeInterval: TimeInterval = 0
   var deltaTime: TimeInterval = 0
   var lives = 3
+  var maxY: CGFloat = 0.0
+  
   
   // Sound Effects
   let soundBombDrop = SKAction.playSoundFileNamed("bombDrop.wav", waitForCompletion: true)
@@ -477,7 +479,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func updatePlayer() {
     
+    
+    let deathY = maxY - 1000
+    
     if(lives < 0){
+      gameOver()
+    }
+    if(player.position.y > maxY){
+      maxY = player.position.y
+    }
+    
+    if(player.position.y < deathY){
       gameOver()
     }
     // Set velocity based on core motion
