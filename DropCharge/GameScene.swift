@@ -253,7 +253,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
       }
     } else {
-      if Int.random(min: 1, max: 100) <= 75 {
+      if Int.random(min: 1, max: 100) <= 60 {
         // Create standard coins 75%
         switch Int.random(min: 0, max: 4) {
         case 0:
@@ -383,16 +383,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func jumpPlayer() {
     setPlayerVelocity(650)
-    posWall += 10
+    posWall += 40
   }
   func slowPlayer() {
-    setPlayerVelocity(200)
-    posWall -= 30
+    setPlayerVelocity(100)
+    posWall -= 100
   }
   
   func boostPlayer() {
     setPlayerVelocity(1200)
-    posWall += 40
+    posWall += 80
   }
   
   func superBoostPlayer() {
@@ -495,7 +495,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setPlayerVelocity(350)
     let deathY = maxY - posWall
     
-    posWall -= 0.25
+    posWall -= 0.6
     
     deathwall.position.y = deathY
     
