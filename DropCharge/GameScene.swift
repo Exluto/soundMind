@@ -494,7 +494,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       superBoostPlayer()
     }
     // Set velocity based on core motion
-    player.physicsBody?.velocity.dx = xAcceleration * 1000.0
+    player.physicsBody?.velocity.dx = xAcceleration * 2000.0
     
     // Wrap player around edges of screen
     var playerPosition = convert(player.position, from: fgNode)
