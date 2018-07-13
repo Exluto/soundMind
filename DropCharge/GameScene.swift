@@ -508,6 +508,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func updatePlayer() {
     
+    player.run(SKAction.repeatForever(self.playerAnimationJump))
+    
     setPlayerVelocity(350)
     let deathY = maxY - posWall
     
