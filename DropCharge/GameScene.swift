@@ -492,19 +492,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func updateCamera() {
     // 1
-    let cameraTarget = convert(player.position, from: fgNode)
-    // 2
-    let targetPositionY = cameraTarget.y - (size.height * 0.10)
-  
    
-    // 3
-    let diff = targetPositionY - camera!.position.y
-    // 4
-    let cameraLagFactor: CGFloat = 0.2
-    let lagDiff = diff * cameraLagFactor
-    let newCameraPositionY = camera!.position.y + lagDiff
     // 5
-    camera!.position.y = newCameraPositionY
+    camera!.position.y = player.position.y + 600
   }
   
   func sceneCropAmount() -> CGFloat {
