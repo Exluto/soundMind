@@ -110,8 +110,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    playerAnimationJump = setupAnimationWithPrefix("player01_jump_", start: 1, end: 3, timePerFrame: 0.1)
-    playerAnimationFall = setupAnimationWithPrefix("player01_fall_", start: 1, end: 3, timePerFrame: 0.1)
+    playerAnimationJump = setupAnimationWithPrefix("player_fly_", start: 1, end: 25, timePerFrame: 0.1)
+    playerAnimationFall = setupAnimationWithPrefix("player_fly_", start: 1, end: 25, timePerFrame: 0.1)
    // playerAnimationSteerLeft = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 1, timePerFrame: 0.1)
    // playerAnimationSteerRight = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 1, timePerFrame: 0.1)
   }
