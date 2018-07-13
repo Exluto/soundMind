@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8452083D20ED86FE00999DCD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8452083C20ED86FE00999DCD /* Default-568h@2x.png */; };
+		847847F720F8440800D48AC0 /* deathwall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 847847F520F8440800D48AC0 /* deathwall.sks */; };
+		847847F820F8440800D48AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847847F620F8440800D48AC0 /* Assets.xcassets */; };
 		F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FAF1F197015003DE4CD /* Platform5Across.sks */; };
 		F5088FB21F1972BA003DE4CD /* CoinArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FB11F1972BA003DE4CD /* CoinArrow.sks */; };
 		F5088FC01F197722003DE4CD /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */; };
@@ -71,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		8452083C20ED86FE00999DCD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		847847F520F8440800D48AC0 /* deathwall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = deathwall.sks; sourceTree = "<group>"; };
+		847847F620F8440800D48AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5088FAF1F197015003DE4CD /* Platform5Across.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Platform5Across.sks; sourceTree = "<group>"; };
 		F5088FB11F1972BA003DE4CD /* CoinArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinArrow.sks; sourceTree = "<group>"; };
 		F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 				F55D64D61F1ED4DF00F50C4B /* CollectNormal.sks */,
 				F55D64D71F1ED4DF00F50C4B /* CollectSpecial.sks */,
 				F55D64D51F1ED4DF00F50C4B /* PlayerTrail.sks */,
+				847847F520F8440800D48AC0 /* deathwall.sks */,
+				847847F620F8440800D48AC0 /* Assets.xcassets */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 				F5B06FAA1F1FC53D0033F5DA /* coin1.wav in Resources */,
 				F5B06FA51F1FC53D0033F5DA /* attribution.txt in Resources */,
 				F5A10EFB1F21220000324600 /* Coin.sks in Resources */,
+				847847F720F8440800D48AC0 /* deathwall.sks in Resources */,
 				F57BE0241F1D7E20002A95DD /* Coin5Across.sks in Resources */,
 				F5B06FA81F1FC53D0033F5DA /* boost.wav in Resources */,
 				F57BE02C1F1D8002002A95DD /* CoinSDiagonal.sks in Resources */,
@@ -344,6 +351,7 @@
 				F5B06FB41F1FC53D0033F5DA /* SpaceGame.caf in Resources */,
 				F5B06FAB1F1FC53D0033F5DA /* coin4.wav in Resources */,
 				F57BE0201F1D7CDB002A95DD /* BreakArrow.sks in Resources */,
+				847847F820F8440800D48AC0 /* Assets.xcassets in Resources */,
 				F51EC0171F1D799A00CA3320 /* CoinSArrow.sks in Resources */,
 				F5B06FA71F1FC53D0033F5DA /* bombDrop.wav in Resources */,
 				F59DF66B1F192EB80002FB45 /* LaunchScreen.storyboard in Resources */,
@@ -531,10 +539,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 83MP95RNGJ;
+				DEVELOPMENT_TEAM = 68L9LKUQ7U;
 				INFOPLIST_FILE = DropCharge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RyanSoundMind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -545,10 +553,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 83MP95RNGJ;
+				DEVELOPMENT_TEAM = 68L9LKUQ7U;
 				INFOPLIST_FILE = DropCharge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RyanSoundMind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

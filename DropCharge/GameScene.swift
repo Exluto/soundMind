@@ -69,6 +69,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var lives = 1
   var maxY: CGFloat = 0.0
   var posWall: CGFloat = 1200.0
+  var playerTrail: SKEmitterNode!
+  
   
   
   // Sound Effects
@@ -121,7 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     backgroundOverlayHeight = backgroundOverlayTemplate.calculateAccumulatedFrame().height
     fgNode = worldNode.childNode(withName: "Foreground")!
     player = fgNode.childNode(withName: "Player") as! SKSpriteNode
-    deathwall = fgNode.childNode(withName: "Deathwall") as! SKSpriteNode
+    setupDeathwall()
     fgNode.childNode(withName: "Bomb")?.run(SKAction.hide())
 
     
@@ -176,11 +178,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func setupDeathwall() {
-    deathwall.physicsBody = SKPhysicsBody(circleOfRadius: deathwall.size.width)
-    deathwall.physicsBody!.isDynamic = false
-
+   // deathwall.physicsBody = SKPhysicsBody(circleOfRadius: deathwall.size.width)
+   // deathwall.physicsBody!.isDynamic = false
+    deathwall = fgNode.childNode(withName: "deathwall") as! SKSpriteNode
+    let emitter = SKEmitterNode(fileNamed: "deathwall.sks")!
+    emitter.particlePositionRange = CGVector (dx: size.width * 1.125, dy: 0.0)
+    emitter.advanceSimulationTime(3.0)
+    deathwall.addChild(emitter)
     
-    
+  }
+  
+  func addTrail(name: String) -> SKEmitterNode {
+    let trail = SKEmitterNode(fileNamed: name)!; trail.zPosition = -1
+    player.addChild(trail)
+    return trail }
+  
+  
+  func removeTrail(trail: SKEmitterNode) {
+    trail.numParticlesToEmit = 1
+    trail.run(SKAction.removeFromParentAfterDelay(1.0))
   }
   
   func setupCoreMotion() {
