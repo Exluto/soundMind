@@ -110,10 +110,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    playerAnimationJump = setupAnimationWithPrefix("player_fly_", start: 1, end: 25, timePerFrame: 0.1)
-    playerAnimationFall = setupAnimationWithPrefix("player_fly_", start: 1, end: 25, timePerFrame: 0.1)
-   // playerAnimationSteerLeft = setupAnimationWithPrefix("player01_steerleft_", start: 1, end: 1, timePerFrame: 0.1)
-   // playerAnimationSteerRight = setupAnimationWithPrefix("player01_steerright_", start: 1, end: 1, timePerFrame: 0.1)
+    playerAnimationJump = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1, duration: 10000)
+    playerAnimationFall = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1, duration: 10000)
+    playerAnimationSteerLeft = setupAnimationWithPrefix("player_fly_", start: 21, end: 22, timePerFrame: 0.1, duration: 10000)
+    playerAnimationSteerRight = setupAnimationWithPrefix("player_fly_", start: 24, end: 25, timePerFrame: 0.1, duration: 10000)
   }
   
   func setupNodes() {
@@ -134,8 +134,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     break5Across = loadForegroundOverlayTemplate("Break5Across")
     breakDiagonal = loadForegroundOverlayTemplate("BreakDiagonal")
     
-    coinAnimation = setupAnimationWithPrefix("powerup05_", start: 1, end: 6, timePerFrame: 0.15)
-    coinSpecialAnimation = setupAnimationWithPrefix("powerup01_", start: 1, end: 1, timePerFrame: 0.083)
+    coinAnimation = setupAnimationWithPrefix("powerup05_", start: 1, end: 6, timePerFrame: 0.15, duration: 10000)
+    coinSpecialAnimation = setupAnimationWithPrefix("powerup01_", start: 1, end: 1, timePerFrame: 0.083, duration: 10000)
     
     coin5Across = loadForegroundOverlayTemplate("Coin5Across")
     coinDiagonal = loadForegroundOverlayTemplate("CoinDiagonal")
@@ -562,9 +562,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if playerState == .jump {
       if abs(player.physicsBody!.velocity.dx) > 100.0 {
         if player.physicsBody!.velocity.dx > 0 {
-        //  runPlayerAnimation(playerAnimationSteerRight)
+          runPlayerAnimation(playerAnimationSteerRight)
         } else {
-      //    runPlayerAnimation(playerAnimationSteerLeft)
+          runPlayerAnimation(playerAnimationSteerLeft)
         }
       } else {
         runPlayerAnimation(playerAnimationJump)
@@ -573,9 +573,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       runPlayerAnimation(playerAnimationFall)
     }
   }
-  
-  
-
   
 
   
@@ -606,7 +603,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   
   // MARK: - Animation
-  func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval) -> SKAction {
+  func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval, duration: Float) -> SKAction {
     var textures: [SKTexture] = []
     for i in start...end {
       textures.append(SKTexture(imageNamed: "\(prefix)\(i)"))
