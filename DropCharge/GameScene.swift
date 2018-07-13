@@ -102,7 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupLevel()
     setupPlayer()
     setupCoreMotion()
-    
+    //playBackgroundMusic(name: "fleeTheme.caf")
     physicsWorld.contactDelegate = self
     
     let scale = SKAction.scale(to: 1.0, duration: 0.5)
@@ -166,6 +166,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       addRandomForegroundOverlay()
     }
   }
+  
+//  func playBackgroundMusic(name: String) {
+//    if let backgroundMusic = childNode(withName: "backgroundMusic"){
+//      backgroundMusic.removeFromParent()
+//    }
+//    let music = SKAudioNode(fileNamed: name)
+//    music.name = "backgroundMusic"
+//    music.autoplayLooped = true
+//    addChild(music)
+//  }
   
   func setupPlayer() {
     player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width * 0.3)
@@ -360,11 +370,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     player.physicsBody!.isDynamic = true
     superBoostPlayer()
 
-    let alarm = SKAudioNode(fileNamed: "alarm.wav")
-    alarm.name = "alarm"
-    alarm.autoplayLooped = true
-    addChild(alarm)
-  }
+    let music = SKAudioNode(fileNamed: "fleeTheme.au")
+    music.name = "music"
+    music.autoplayLooped = true
+    addChild(music)
+    }
   
   func gameOver() {
     // 1
@@ -385,8 +395,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     gameOverSprite.position = camera!.position
     gameOverSprite.zPosition = 10
     addChild(gameOverSprite)
-    if let alarm = childNode(withName: "alarm") {
-      alarm.removeFromParent()
+    if let music = childNode(withName: "music") {
+      music.removeFromParent()
+      
     }
     
    
