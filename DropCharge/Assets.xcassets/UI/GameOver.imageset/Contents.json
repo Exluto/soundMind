@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "GameOver.png",
+      "filename" : "FleeGameOver.png",
       "scale" : "1x"
     },
     {
