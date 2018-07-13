@@ -67,6 +67,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var lastUpdateTimeInterval: TimeInterval = 0
   var deltaTime: TimeInterval = 0
   var lives = 1
+  
+  
   var score = 0
   var maxY: CGFloat = 0.0
   var posWall: CGFloat = 1200.0
@@ -495,7 +497,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func updateCamera() {
-    // 1
+    
+    scoreLabel.text = String(score)
    
     // 5
     camera!.position.y = player.position.y + 600
