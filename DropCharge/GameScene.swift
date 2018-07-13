@@ -67,6 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var lastUpdateTimeInterval: TimeInterval = 0
   var deltaTime: TimeInterval = 0
   var lives = 1
+  var score = 0
   var maxY: CGFloat = 0.0
   var posWall: CGFloat = 1200.0
   var playerTrail: SKEmitterNode!
@@ -420,6 +421,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   func boostPlayer() {
     setPlayerVelocity(1200)
     posWall += 80
+    
   }
   
   func superBoostPlayer() {
@@ -432,9 +434,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     switch other.categoryBitMask {
     case PhysicsCategory.CoinNormal:
       if (other.node as? SKSpriteNode) != nil {
-    
+        (other.node as! SKSpriteNode).removeFromParent()
         jumpPlayer()
         run(soundCoin)
+        score += 10
+        print(score)
       }
     case PhysicsCategory.CoinSpecial:
       if (other.node as? SKSpriteNode) != nil {
