@@ -498,7 +498,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func updateCamera() {
     
-    scoreLabel.text = String(score)
+  
    
     // 5
     camera!.position.y = player.position.y + 600
