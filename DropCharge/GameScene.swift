@@ -185,7 +185,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     emitter.particlePositionRange = CGVector (dx: size.width * 1.125, dy: 0.0)
     emitter.advanceSimulationTime(3.0)
     deathwall.addChild(emitter)
-    
+
   }
   
   func addTrail(name: String) -> SKEmitterNode {
