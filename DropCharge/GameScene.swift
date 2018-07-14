@@ -270,7 +270,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let platformPercentage = 60
     
     if Int.random(min: 1, max: 100) <= platformPercentage {
-      if Int.random(min: 1, max: 100) <= 50 {
+      if Int.random(min: 1, max: 100) <= 20 {
         // Create standard platforms 50%
         switch Int.random(min: 0, max: 3) {
         case 0:
