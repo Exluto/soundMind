@@ -439,7 +439,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func jumpPlayer() {
     setPlayerVelocity(650)
-    posWall += 40
+    posWall += 60
   }
   func slowPlayer() {
     setPlayerVelocity(100)
@@ -448,13 +448,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func boostPlayer() {
     setPlayerVelocity(1200)
-    posWall += 80
+    posWall += 120
     
   }
   
   func superBoostPlayer() {
     setPlayerVelocity(1700)
-   // posWall += 100
+    posWall += 300
   }
   
   func didBegin(_ contact: SKPhysicsContact) {
