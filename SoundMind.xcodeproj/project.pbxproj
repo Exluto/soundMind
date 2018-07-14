@@ -11,6 +11,9 @@
 		847847F720F8440800D48AC0 /* deathwall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 847847F520F8440800D48AC0 /* deathwall.sks */; };
 		847847F820F8440800D48AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847847F620F8440800D48AC0 /* Assets.xcassets */; };
 		B83623AA20F98FB300BEFB0B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83623A920F98FB300BEFB0B /* Images.xcassets */; };
+		B83623AC20F9A2A600BEFB0B /* Break5Meteor.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AB20F9A2A600BEFB0B /* Break5Meteor.sks */; };
+		B83623AF20F9A32200BEFB0B /* Break5Meteor Left.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AD20F9A32200BEFB0B /* Break5Meteor Left.sks */; };
+		B83623B020F9A32200BEFB0B /* Break5Meteor Right.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AE20F9A32200BEFB0B /* Break5Meteor Right.sks */; };
 		F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FAF1F197015003DE4CD /* Platform5Across.sks */; };
 		F5088FB21F1972BA003DE4CD /* CoinArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FB11F1972BA003DE4CD /* CoinArrow.sks */; };
 		F5088FC01F197722003DE4CD /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */; };
@@ -77,6 +80,9 @@
 		847847F520F8440800D48AC0 /* deathwall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = deathwall.sks; sourceTree = "<group>"; };
 		847847F620F8440800D48AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B83623A920F98FB300BEFB0B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SoundMind/Images.xcassets; sourceTree = "<group>"; };
+		B83623AB20F9A2A600BEFB0B /* Break5Meteor.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Break5Meteor.sks; sourceTree = "<group>"; };
+		B83623AD20F9A32200BEFB0B /* Break5Meteor Left.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Break5Meteor Left.sks"; sourceTree = "<group>"; };
+		B83623AE20F9A32200BEFB0B /* Break5Meteor Right.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Break5Meteor Right.sks"; sourceTree = "<group>"; };
 		F5088FAF1F197015003DE4CD /* Platform5Across.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Platform5Across.sks; sourceTree = "<group>"; };
 		F5088FB11F1972BA003DE4CD /* CoinArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinArrow.sks; sourceTree = "<group>"; };
 		F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -167,6 +173,9 @@
 				F57BE02D1F1D8088002A95DD /* CoinSCross.sks */,
 				F59902051F1D778700587DF5 /* Break5Across.sks */,
 				F57BE01F1F1D7CDB002A95DD /* BreakArrow.sks */,
+				B83623AD20F9A32200BEFB0B /* Break5Meteor Left.sks */,
+				B83623AE20F9A32200BEFB0B /* Break5Meteor Right.sks */,
+				B83623AB20F9A2A600BEFB0B /* Break5Meteor.sks */,
 				F57BE0211F1D7D66002A95DD /* BreakDiagonal.sks */,
 				F5A10EFA1F21220000324600 /* Coin.sks */,
 				F5A10EFC1F2123FE00324600 /* CoinSpecial.sks */,
@@ -337,6 +346,7 @@
 				847847F720F8440800D48AC0 /* deathwall.sks in Resources */,
 				F57BE0241F1D7E20002A95DD /* Coin5Across.sks in Resources */,
 				F5B06FA81F1FC53D0033F5DA /* boost.wav in Resources */,
+				B83623AC20F9A2A600BEFB0B /* Break5Meteor.sks in Resources */,
 				F57BE02C1F1D8002002A95DD /* CoinSDiagonal.sks in Resources */,
 				F5702A5E1F21343500D43F34 /* PlayerTrail.sks in Resources */,
 				F5B06FB11F1FC53D0033F5DA /* jump.wav in Resources */,
@@ -351,6 +361,7 @@
 				F57BE0221F1D7D66002A95DD /* BreakDiagonal.sks in Resources */,
 				F5AF29481F1ED05F00EE9B11 /* SmokeTrail.sks in Resources */,
 				F5B06FB31F1FC53D0033F5DA /* player_die.wav in Resources */,
+				B83623B020F9A32200BEFB0B /* Break5Meteor Right.sks in Resources */,
 				F5B06FB41F1FC53D0033F5DA /* SpaceGame.caf in Resources */,
 				F5B06FAB1F1FC53D0033F5DA /* coin4.wav in Resources */,
 				F57BE0201F1D7CDB002A95DD /* BreakArrow.sks in Resources */,
@@ -374,6 +385,7 @@
 				8452083D20ED86FE00999DCD /* Default-568h@2x.png in Resources */,
 				F5B06FAE1F1FC53D0033F5DA /* explosion2.wav in Resources */,
 				F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */,
+				B83623AF20F9A32200BEFB0B /* Break5Meteor Left.sks in Resources */,
 				F5AF29441F1EC9F800EE9B11 /* Lava.sks in Resources */,
 				F5B06FB01F1FC53D0033F5DA /* explosion4.wav in Resources */,
 				F5B06FAF1F1FC53D0033F5DA /* explosion3.wav in Resources */,
