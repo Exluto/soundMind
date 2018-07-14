@@ -25,6 +25,7 @@ struct PhysicsCategory {
   static let CoinNormal: UInt32        = 0b1000   // 8
   static let CoinSpecial: UInt32       = 0b10000  // 16
   static let Edges: UInt32             = 0b100000 // 32
+  static let Torpedo: UInt32           = 0b1000000 //64
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -34,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var backgroundOverlayTemplate: SKNode!
   var backgroundOverlayHeight: CGFloat!
   var player: SKSpriteNode!
+  var torpedoNode: SKSpriteNode!
   var deathwall: SKSpriteNode!
   
   var platform5Across: SKSpriteNode!
@@ -459,8 +461,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     posWall += 1400
   }
   
+  func didEnd(_ contact: SKPhysicsContact) {
+    let torp =  contact.bodyA.categoryBitMask == PhysicsCategory.Torpedo ? contact.bodyB : contact.bodyA
+    
+    
+    switch torp.categoryBitMask{
+    case PhysicsCategory.PlatformBreakable:
+      if (torp.node as? SKSpriteNode) != nil {
+        (torp.node as! SKSpriteNode).removeFromParent()
+        print("hi")
+      }
+    default:
+      break
+      
+    }
+  }
+    
+
+  
   func didBegin(_ contact: SKPhysicsContact) {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
+   
     switch other.categoryBitMask {
     case PhysicsCategory.CoinNormal:
       if (other.node as? SKSpriteNode) != nil {
@@ -487,16 +508,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     case PhysicsCategory.PlatformBreakable:
       if let platform = other.node as? SKSpriteNode {
-          platformAction(platform, breakable: true)
+        //  platformAction(platform, breakable: true)
           slowPlayer()
-        //  platform.removeFromParent()
-
-
       }
+ 
+      
     default:
       break
     }
   }
+  
   
   // MARK: - Updates
   
@@ -542,7 +563,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     return scaledOverlap / scale
   }
   
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    fireTorpedo()
+    
+  }
+  
+  func fireTorpedo() {
+    
+    torpedoNode = SKSpriteNode(imageNamed: "player01_jump_2")
+    torpedoNode.position = player.position
+    torpedoNode.zPosition = 10
+    
+    
+    torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
+    torpedoNode.physicsBody?.isDynamic = true
+    
+    torpedoNode.physicsBody?.categoryBitMask = PhysicsCategory.Torpedo
+  //  torpedoNode.physicsBody?.contactTestBitMask = alienCategory
+    torpedoNode.physicsBody?.collisionBitMask = 0
+    torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
+    torpedoNode.physicsBody?.affectedByGravity = false
+    
+    self.addChild(torpedoNode)
+    
+  //  let animationDuration:TimeInterval = 0.3
+    
+    
+   // var actionArray = [SKAction]()
+    
+  //  actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: self.frame.size.height + 10), duration: animationDuration))
+  //  actionArray.append(SKAction.removeFromParent())
+    
+ //   torpedoNode.run(SKAction.sequence(actionArray))
+    
+    
+    
+  }
+  
   func updatePlayer() {
+    if(torpedoNode != nil){
+      torpedoNode.position.y += 100
+      
+    }
     
     player.run(SKAction.repeatForever(self.playerAnimationJump))
     
