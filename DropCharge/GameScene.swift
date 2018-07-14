@@ -1,10 +1,11 @@
 import SpriteKit
 import CoreMotion
+import UIKit
 
 // MARK: - Game States
 enum GameStatus: Int {
   case waitingForTap = 0
-  case waitingForBomb = 1
+  case waitingForStar = 1
   case playing = 2
   case gameOver = 3
 }
@@ -71,8 +72,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var deltaTime: TimeInterval = 0
   var lives = 1
   
-  
-  var score = 0
   var maxY: CGFloat = 0.0
   var posWall: CGFloat = 1200.0
   var playerTrail: SKEmitterNode!
@@ -80,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   
   // Sound Effects
-  let soundBombDrop = SKAction.playSoundFileNamed("bombDrop.wav", waitForCompletion: true)
+  let soundStarDrop = SKAction.playSoundFileNamed("bombDrop.wav", waitForCompletion: true)
   let soundSuperBoost = SKAction.playSoundFileNamed("nitro.wav", waitForCompletion: false)
   let soundTickTock = SKAction.playSoundFileNamed("tickTock.wav", waitForCompletion: true)
   let soundBoost = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
@@ -102,6 +101,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let gameGain: CGFloat = 2.5
   var redAlertTime: TimeInterval = 0
   
+  var scoreLabel:SKLabelNode!
+  var score:Int = 0 {
+    didSet {
+      scoreLabel.text = "Score: \(score)"
+    }
+  }
+  
   // MARK: - Setup
   override func didMove(to view: SKView) {
     setupNodes()
@@ -113,6 +119,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let scale = SKAction.scale(to: 1.0, duration: 0.5)
     fgNode.childNode(withName: "Ready")!.run(scale)
+    scoreLabel = SKLabelNode(text: "Score: 0")
+    
+    scoreLabel.fontName = "AmericanTypewriter-Bold"
+    scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
+    scoreLabel.zPosition = 11
+    scoreLabel.fontSize = 36
+    scoreLabel.fontColor = UIColor.white
+    score = 0
+    
+    self.addChild(scoreLabel)
     
     
     
@@ -130,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     fgNode = worldNode.childNode(withName: "Foreground")!
     player = fgNode.childNode(withName: "Player") as! SKSpriteNode
     setupDeathwall()
-    fgNode.childNode(withName: "Bomb")?.run(SKAction.hide())
+    fgNode.childNode(withName: "Star")?.run(SKAction.hide())
 
     
     platformArrow = loadForegroundOverlayTemplate("PlatformArrow")
@@ -346,7 +362,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // MARK: - Events
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if gameState == .waitingForTap {
-      bombDrop()
+      starDrop()
     } else if gameState == .gameOver {
       let newScene = GameScene(fileNamed:"GameScene")
       newScene!.scaleMode = .aspectFill
@@ -355,32 +371,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
   }
   
-  func bombDrop() {
-    gameState = .waitingForBomb
+  func starDrop() {
+    gameState = .waitingForStar
     // Scale out title & ready label.
     let scale = SKAction.scale(to: 0, duration: 0.4)
     fgNode.childNode(withName: "Title")!.run(scale)
     fgNode.childNode(withName: "Ready")!.run(SKAction.sequence([SKAction.wait(forDuration: 0.2), scale]))
-    // Bounce bomb
+    // Bounce star
     let scaleUp = SKAction.scale(to: 3.0, duration: 0.25)
     let scaleDown = SKAction.scale(to: 2.0, duration: 0.25)
     let sequence = SKAction.sequence([scaleUp, scaleDown])
     let repeatSeq = SKAction.repeatForever(sequence)
-    fgNode.childNode(withName: "Bomb")!.run(SKAction.unhide())
-    fgNode.childNode(withName: "Bomb")!.run(repeatSeq)
+    fgNode.childNode(withName: "Star")!.run(SKAction.unhide())
+    fgNode.childNode(withName: "Star")!.run(repeatSeq)
     run(SKAction.sequence([
-      soundBombDrop,
+      soundStarDrop,
       soundTickTock,
       SKAction.run(startGame)
       ]))
   }
   
   func startGame() {
-    let bomb = fgNode.childNode(withName: "Bomb")!
+    let star = fgNode.childNode(withName: "Star")!
 
 
 
-    bomb.removeFromParent()
+    star.removeFromParent()
    
     gameState = .playing
     player.physicsBody!.isDynamic = true
@@ -598,6 +614,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   
   func updateLevel() {
+    scoreLabel.position = CGPoint(x: player.position.x + player.size.height, y: player.position.y + player.size.height)
     let cameraPos = camera!.position
     if cameraPos.y > levelPositionY - size.height {
       createBackgroundOverlay()
