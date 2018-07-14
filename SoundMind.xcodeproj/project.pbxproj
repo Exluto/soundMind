@@ -10,6 +10,7 @@
 		8452083D20ED86FE00999DCD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8452083C20ED86FE00999DCD /* Default-568h@2x.png */; };
 		847847F720F8440800D48AC0 /* deathwall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 847847F520F8440800D48AC0 /* deathwall.sks */; };
 		847847F820F8440800D48AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847847F620F8440800D48AC0 /* Assets.xcassets */; };
+		B83623AA20F98FB300BEFB0B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83623A920F98FB300BEFB0B /* Images.xcassets */; };
 		F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FAF1F197015003DE4CD /* Platform5Across.sks */; };
 		F5088FB21F1972BA003DE4CD /* CoinArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FB11F1972BA003DE4CD /* CoinArrow.sks */; };
 		F5088FC01F197722003DE4CD /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */; };
@@ -75,6 +76,7 @@
 		8452083C20ED86FE00999DCD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		847847F520F8440800D48AC0 /* deathwall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = deathwall.sks; sourceTree = "<group>"; };
 		847847F620F8440800D48AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B83623A920F98FB300BEFB0B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SoundMind/Images.xcassets; sourceTree = "<group>"; };
 		F5088FAF1F197015003DE4CD /* Platform5Across.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Platform5Across.sks; sourceTree = "<group>"; };
 		F5088FB11F1972BA003DE4CD /* CoinArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinArrow.sks; sourceTree = "<group>"; };
 		F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		F59DF64E1F192EB80002FB45 = {
 			isa = PBXGroup;
 			children = (
+				B83623A920F98FB300BEFB0B /* Images.xcassets */,
 				8452083C20ED86FE00999DCD /* Default-568h@2x.png */,
 				F59DF6591F192EB80002FB45 /* DropCharge */,
 				F59DF6581F192EB80002FB45 /* Products */,
@@ -360,6 +363,7 @@
 				F57BE01E1F1D7B8F002A95DD /* PlatformDiagonal.sks in Resources */,
 				F5B06FB21F1FC53D0033F5DA /* nitro.wav in Resources */,
 				F59902061F1D778700587DF5 /* Break5Across.sks in Resources */,
+				B83623AA20F98FB300BEFB0B /* Images.xcassets in Resources */,
 				F5B06FB51F1FC53D0033F5DA /* tickTock.wav in Resources */,
 				F5B06FAD1F1FC53D0033F5DA /* explosion1.wav in Resources */,
 				F57BE02E1F1D8088002A95DD /* CoinSCross.sks in Resources */,
@@ -539,10 +543,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 68L9LKUQ7U;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 83MP95RNGJ;
 				INFOPLIST_FILE = DropCharge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -553,10 +558,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 68L9LKUQ7U;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 83MP95RNGJ;
 				INFOPLIST_FILE = DropCharge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
