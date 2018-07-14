@@ -1,5 +1,6 @@
 import SpriteKit
 import CoreMotion
+import UIKit
 
 // MARK: - Game States
 enum GameStatus: Int {
@@ -68,8 +69,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var deltaTime: TimeInterval = 0
   var lives = 1
   
-  
-  var score = 0
   var maxY: CGFloat = 0.0
   var posWall: CGFloat = 1200.0
   var playerTrail: SKEmitterNode!
@@ -99,6 +98,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let gameGain: CGFloat = 2.5
   var redAlertTime: TimeInterval = 0
   
+  var scoreLabel:SKLabelNode!
+  var score:Int = 0 {
+    didSet {
+      scoreLabel.text = "Score: \(score)"
+    }
+  }
+  
   // MARK: - Setup
   override func didMove(to view: SKView) {
     setupNodes()
@@ -110,6 +116,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let scale = SKAction.scale(to: 1.0, duration: 0.5)
     fgNode.childNode(withName: "Ready")!.run(scale)
+    scoreLabel = SKLabelNode(text: "Score: 0")
+    
+    scoreLabel.fontName = "AmericanTypewriter-Bold"
+    scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
+    scoreLabel.zPosition = 6
+    scoreLabel.fontSize = 36
+    scoreLabel.fontColor = UIColor.white
+    score = 0
+    
+    self.addChild(scoreLabel)
     
     
     
@@ -585,6 +601,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   
   func updateLevel() {
+    scoreLabel.position = CGPoint(x: player.position.x + player.size.height, y: player.position.y + player.size.height)
     let cameraPos = camera!.position
     if cameraPos.y > levelPositionY - size.height {
       createBackgroundOverlay()
