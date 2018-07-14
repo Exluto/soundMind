@@ -442,7 +442,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     posWall += 60
   }
   func slowPlayer() {
-    setPlayerVelocity(100)
+    setPlayerVelocity(200)
     posWall -= 100
   }
   
