@@ -10,8 +10,6 @@
 		8452083D20ED86FE00999DCD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8452083C20ED86FE00999DCD /* Default-568h@2x.png */; };
 		847847F720F8440800D48AC0 /* deathwall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 847847F520F8440800D48AC0 /* deathwall.sks */; };
 		847847F820F8440800D48AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847847F620F8440800D48AC0 /* Assets.xcassets */; };
-		B83623A520F9158D00BEFB0B /* fleeTheme.caf in Resources */ = {isa = PBXBuildFile; fileRef = B83623A420F9158D00BEFB0B /* fleeTheme.caf */; };
-		B83623A720F91A7000BEFB0B /* fleeTheme.au in Resources */ = {isa = PBXBuildFile; fileRef = B83623A620F91A7000BEFB0B /* fleeTheme.au */; };
 		F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FAF1F197015003DE4CD /* Platform5Across.sks */; };
 		F5088FB21F1972BA003DE4CD /* CoinArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FB11F1972BA003DE4CD /* CoinArrow.sks */; };
 		F5088FC01F197722003DE4CD /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */; };
@@ -77,8 +75,6 @@
 		8452083C20ED86FE00999DCD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		847847F520F8440800D48AC0 /* deathwall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = deathwall.sks; sourceTree = "<group>"; };
 		847847F620F8440800D48AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B83623A420F9158D00BEFB0B /* fleeTheme.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fleeTheme.caf; path = ../../../../../Downloads/fleeTheme.caf; sourceTree = "<group>"; };
-		B83623A620F91A7000BEFB0B /* fleeTheme.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = fleeTheme.au; path = ../../../../../Downloads/fleeTheme.au; sourceTree = "<group>"; };
 		F5088FAF1F197015003DE4CD /* Platform5Across.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Platform5Across.sks; sourceTree = "<group>"; };
 		F5088FB11F1972BA003DE4CD /* CoinArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinArrow.sks; sourceTree = "<group>"; };
 		F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -256,7 +252,6 @@
 				F5B06F941F1FC53C0033F5DA /* bgMusic.mp3 */,
 				F5B06F951F1FC53C0033F5DA /* bombDrop.wav */,
 				F5B06F961F1FC53C0033F5DA /* boost.wav */,
-				B83623A620F91A7000BEFB0B /* fleeTheme.au */,
 				F5B06F971F1FC53C0033F5DA /* brick.caf */,
 				F5B06F981F1FC53C0033F5DA /* coin1.wav */,
 				F5B06F991F1FC53C0033F5DA /* coin4.wav */,
@@ -269,7 +264,6 @@
 				F5B06FA01F1FC53C0033F5DA /* nitro.wav */,
 				F5B06FA11F1FC53C0033F5DA /* player_die.wav */,
 				F5B06FA21F1FC53C0033F5DA /* SpaceGame.caf */,
-				B83623A420F9158D00BEFB0B /* fleeTheme.caf */,
 				F5B06FA31F1FC53C0033F5DA /* tickTock.wav */,
 			);
 			path = sounds;
@@ -336,7 +330,6 @@
 				F5B06FAC1F1FC53D0033F5DA /* DrownFireBug.mp3 in Resources */,
 				F5B06FAA1F1FC53D0033F5DA /* coin1.wav in Resources */,
 				F5B06FA51F1FC53D0033F5DA /* attribution.txt in Resources */,
-				B83623A720F91A7000BEFB0B /* fleeTheme.au in Resources */,
 				F5A10EFB1F21220000324600 /* Coin.sks in Resources */,
 				847847F720F8440800D48AC0 /* deathwall.sks in Resources */,
 				F57BE0241F1D7E20002A95DD /* Coin5Across.sks in Resources */,
@@ -370,7 +363,6 @@
 				F5B06FB51F1FC53D0033F5DA /* tickTock.wav in Resources */,
 				F5B06FAD1F1FC53D0033F5DA /* explosion1.wav in Resources */,
 				F57BE02E1F1D8088002A95DD /* CoinSCross.sks in Resources */,
-				B83623A520F9158D00BEFB0B /* fleeTheme.caf in Resources */,
 				F5702A5C1F21343500D43F34 /* CollectNormal.sks in Resources */,
 				F5702A5D1F21343500D43F34 /* CollectSpecial.sks in Resources */,
 				F5A10EFD1F2123FE00324600 /* CoinSpecial.sks in Resources */,
@@ -547,10 +539,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 83MP95RNGJ;
+				DEVELOPMENT_TEAM = 68L9LKUQ7U;
 				INFOPLIST_FILE = DropCharge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -561,10 +553,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 83MP95RNGJ;
+				DEVELOPMENT_TEAM = 68L9LKUQ7U;
 				INFOPLIST_FILE = DropCharge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoundMindD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
