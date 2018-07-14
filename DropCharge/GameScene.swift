@@ -290,7 +290,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
       } else {
         // Create breakable platforms 50%
-        switch Int.random(min: 0, max: 3) {
+        switch Int.random(min: 0, max: 6) {
         case 0:
           overlaySprite = breakArrow
         case 1:
