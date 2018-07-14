@@ -221,7 +221,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           return
         }
         let acceleration = accelerometerData.acceleration
-        self.xAcceleration = CGFloat(acceleration.x) * 0.75 + self.xAcceleration * 0.25
+        self.xAcceleration = CGFloat(acceleration.x) * 0.75 + self.xAcceleration * 0.50
     })
   }
   
@@ -501,7 +501,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
    
     // 5
-    camera!.position.y = player.position.y + 600
+    camera!.position.y = player.position.y + 400
   }
   
   func sceneCropAmount() -> CGFloat {
@@ -545,7 +545,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       superBoostPlayer()
     }
     // Set velocity based on core motion
-    player.physicsBody?.velocity.dx = xAcceleration * 2000.0
+    player.physicsBody?.velocity.dx = xAcceleration * 2500.0
     
     // Wrap player around edges of screen
     var playerPosition = convert(player.position, from: fgNode)
