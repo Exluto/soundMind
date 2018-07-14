@@ -29,10 +29,6 @@
 		F5088FCA1F197722003DE4CD /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FBE1F197722003DE4CD /* SKTTimingFunctions.swift */; };
 		F5088FCB1F197722003DE4CD /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FBF1F197722003DE4CD /* Vector3.swift */; };
 		F51EC0171F1D799A00CA3320 /* CoinSArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F51EC0161F1D799A00CA3320 /* CoinSArrow.sks */; };
-		F5702A5B1F21343500D43F34 /* BrokenPlatform.sks in Resources */ = {isa = PBXBuildFile; fileRef = F55D64D41F1ED4DF00F50C4B /* BrokenPlatform.sks */; };
-		F5702A5C1F21343500D43F34 /* CollectNormal.sks in Resources */ = {isa = PBXBuildFile; fileRef = F55D64D61F1ED4DF00F50C4B /* CollectNormal.sks */; };
-		F5702A5D1F21343500D43F34 /* CollectSpecial.sks in Resources */ = {isa = PBXBuildFile; fileRef = F55D64D71F1ED4DF00F50C4B /* CollectSpecial.sks */; };
-		F5702A5E1F21343500D43F34 /* PlayerTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = F55D64D51F1ED4DF00F50C4B /* PlayerTrail.sks */; };
 		F57BE01C1F1D7AB9002A95DD /* PlatformArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F57BE01B1F1D7AB9002A95DD /* PlatformArrow.sks */; };
 		F57BE01E1F1D7B8F002A95DD /* PlatformDiagonal.sks in Resources */ = {isa = PBXBuildFile; fileRef = F57BE01D1F1D7B8F002A95DD /* PlatformDiagonal.sks */; };
 		F57BE0201F1D7CDB002A95DD /* BreakArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F57BE01F1F1D7CDB002A95DD /* BreakArrow.sks */; };
@@ -53,8 +49,6 @@
 		F59DF66B1F192EB80002FB45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F59DF6691F192EB80002FB45 /* LaunchScreen.storyboard */; };
 		F5A10EFB1F21220000324600 /* Coin.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5A10EFA1F21220000324600 /* Coin.sks */; };
 		F5A10EFD1F2123FE00324600 /* CoinSpecial.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5A10EFC1F2123FE00324600 /* CoinSpecial.sks */; };
-		F5AF29441F1EC9F800EE9B11 /* Lava.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5AF29421F1EC9F800EE9B11 /* Lava.sks */; };
-		F5AF29481F1ED05F00EE9B11 /* SmokeTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5AF29461F1ED05F00EE9B11 /* SmokeTrail.sks */; };
 		F5B06FA41F1FC53D0033F5DA /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = F5B06F921F1FC53C0033F5DA /* alarm.wav */; };
 		F5B06FA51F1FC53D0033F5DA /* attribution.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5B06F931F1FC53C0033F5DA /* attribution.txt */; };
 		F5B06FA61F1FC53D0033F5DA /* bgMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5B06F941F1FC53C0033F5DA /* bgMusic.mp3 */; };
@@ -98,10 +92,6 @@
 		F5088FBE1F197722003DE4CD /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		F5088FBF1F197722003DE4CD /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		F51EC0161F1D799A00CA3320 /* CoinSArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinSArrow.sks; sourceTree = "<group>"; };
-		F55D64D41F1ED4DF00F50C4B /* BrokenPlatform.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BrokenPlatform.sks; sourceTree = "<group>"; };
-		F55D64D51F1ED4DF00F50C4B /* PlayerTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerTrail.sks; sourceTree = "<group>"; };
-		F55D64D61F1ED4DF00F50C4B /* CollectNormal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CollectNormal.sks; sourceTree = "<group>"; };
-		F55D64D71F1ED4DF00F50C4B /* CollectSpecial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CollectSpecial.sks; sourceTree = "<group>"; };
 		F57BE01B1F1D7AB9002A95DD /* PlatformArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlatformArrow.sks; sourceTree = "<group>"; };
 		F57BE01D1F1D7B8F002A95DD /* PlatformDiagonal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlatformDiagonal.sks; sourceTree = "<group>"; };
 		F57BE01F1F1D7CDB002A95DD /* BreakArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BreakArrow.sks; sourceTree = "<group>"; };
@@ -124,8 +114,6 @@
 		F59DF66C1F192EB80002FB45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5A10EFA1F21220000324600 /* Coin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Coin.sks; sourceTree = "<group>"; };
 		F5A10EFC1F2123FE00324600 /* CoinSpecial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinSpecial.sks; sourceTree = "<group>"; };
-		F5AF29421F1EC9F800EE9B11 /* Lava.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Lava.sks; sourceTree = "<group>"; };
-		F5AF29461F1ED05F00EE9B11 /* SmokeTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeTrail.sks; sourceTree = "<group>"; };
 		F5B06F921F1FC53C0033F5DA /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		F5B06F931F1FC53C0033F5DA /* attribution.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = attribution.txt; sourceTree = "<group>"; };
 		F5B06F941F1FC53C0033F5DA /* bgMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgMusic.mp3; sourceTree = "<group>"; };
@@ -244,12 +232,6 @@
 		F5AF29411F1EC8F400EE9B11 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				F5AF29421F1EC9F800EE9B11 /* Lava.sks */,
-				F5AF29461F1ED05F00EE9B11 /* SmokeTrail.sks */,
-				F55D64D41F1ED4DF00F50C4B /* BrokenPlatform.sks */,
-				F55D64D61F1ED4DF00F50C4B /* CollectNormal.sks */,
-				F55D64D71F1ED4DF00F50C4B /* CollectSpecial.sks */,
-				F55D64D51F1ED4DF00F50C4B /* PlayerTrail.sks */,
 				847847F520F8440800D48AC0 /* deathwall.sks */,
 				847847F620F8440800D48AC0 /* Assets.xcassets */,
 			);
@@ -348,18 +330,15 @@
 				F5B06FA81F1FC53D0033F5DA /* boost.wav in Resources */,
 				B83623AC20F9A2A600BEFB0B /* Break5Meteor.sks in Resources */,
 				F57BE02C1F1D8002002A95DD /* CoinSDiagonal.sks in Resources */,
-				F5702A5E1F21343500D43F34 /* PlayerTrail.sks in Resources */,
 				F5B06FB11F1FC53D0033F5DA /* jump.wav in Resources */,
 				F5088FB21F1972BA003DE4CD /* CoinArrow.sks in Resources */,
 				F59DF6661F192EB80002FB45 /* Main.storyboard in Resources */,
-				F5702A5B1F21343500D43F34 /* BrokenPlatform.sks in Resources */,
 				F59DF65D1F192EB80002FB45 /* GameScene.sks in Resources */,
 				F59DF6681F192EB80002FB45 /* Assets.xcassets in Resources */,
 				F57BE0261F1D7E70002A95DD /* CoinDiagonal.sks in Resources */,
 				F5B06FA61F1FC53D0033F5DA /* bgMusic.mp3 in Resources */,
 				F5B06FA91F1FC53D0033F5DA /* brick.caf in Resources */,
 				F57BE0221F1D7D66002A95DD /* BreakDiagonal.sks in Resources */,
-				F5AF29481F1ED05F00EE9B11 /* SmokeTrail.sks in Resources */,
 				F5B06FB31F1FC53D0033F5DA /* player_die.wav in Resources */,
 				B83623B020F9A32200BEFB0B /* Break5Meteor Right.sks in Resources */,
 				F5B06FB41F1FC53D0033F5DA /* SpaceGame.caf in Resources */,
@@ -378,15 +357,12 @@
 				F5B06FB51F1FC53D0033F5DA /* tickTock.wav in Resources */,
 				F5B06FAD1F1FC53D0033F5DA /* explosion1.wav in Resources */,
 				F57BE02E1F1D8088002A95DD /* CoinSCross.sks in Resources */,
-				F5702A5C1F21343500D43F34 /* CollectNormal.sks in Resources */,
-				F5702A5D1F21343500D43F34 /* CollectSpecial.sks in Resources */,
 				F5A10EFD1F2123FE00324600 /* CoinSpecial.sks in Resources */,
 				F57BE0281F1D7ED1002A95DD /* CoinCross.sks in Resources */,
 				8452083D20ED86FE00999DCD /* Default-568h@2x.png in Resources */,
 				F5B06FAE1F1FC53D0033F5DA /* explosion2.wav in Resources */,
 				F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */,
 				B83623AF20F9A32200BEFB0B /* Break5Meteor Left.sks in Resources */,
-				F5AF29441F1EC9F800EE9B11 /* Lava.sks in Resources */,
 				F5B06FB01F1FC53D0033F5DA /* explosion4.wav in Resources */,
 				F5B06FAF1F1FC53D0033F5DA /* explosion3.wav in Resources */,
 				F5B06FA41F1FC53D0033F5DA /* alarm.wav in Resources */,
