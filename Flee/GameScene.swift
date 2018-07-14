@@ -557,8 +557,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       gameOver()
     }
     
-    if(posWall > 1200){
-      posWall = 1200
+    if(posWall > 1400){
+      posWall = 1400
     }
     
     if(lives < 0){
@@ -568,9 +568,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       maxY = player.position.y
     }
     
-    if(player.position.y < deathY){
+    if(player.position.y < (deathY + 400)){
       lives -= 1
-      superBoostPlayer()
     }
     // Set velocity based on core motion
     player.physicsBody?.velocity.dx = xAcceleration * 2500.0
