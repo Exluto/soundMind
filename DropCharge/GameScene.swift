@@ -14,7 +14,6 @@ enum PlayerStatus: Int {
   case idle = 0
   case jump = 1
   case fall = 2
-  case lava = 3
   case dead = 4
 }
 
@@ -63,7 +62,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let motionManager = CMMotionManager()
   var xAcceleration = CGFloat(0)
   let cameraNode = SKCameraNode()
-  var lava: SKSpriteNode!
   
   var lastUpdateTimeInterval: TimeInterval = 0
   var deltaTime: TimeInterval = 0
@@ -83,7 +81,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let soundJump = SKAction.playSoundFileNamed("jump.wav", waitForCompletion: false)
   let soundCoin = SKAction.playSoundFileNamed("coin1.wav", waitForCompletion: false)
   let soundBrick = SKAction.playSoundFileNamed("brick.caf", waitForCompletion: false)
-  let soundHitLava = SKAction.playSoundFileNamed("DrownFireBug.mp3", waitForCompletion: false)
   let soundGameOver = SKAction.playSoundFileNamed("player_die.wav", waitForCompletion: false)
   
   var coinAnimation: SKAction!
