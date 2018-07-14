@@ -113,7 +113,7 @@
 		F57BE02B1F1D8002002A95DD /* CoinSDiagonal.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinSDiagonal.sks; sourceTree = "<group>"; };
 		F57BE02D1F1D8088002A95DD /* CoinSCross.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinSCross.sks; sourceTree = "<group>"; };
 		F59902051F1D778700587DF5 /* Break5Across.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Break5Across.sks; sourceTree = "<group>"; };
-		F59DF6571F192EB80002FB45 /* SoundMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F59DF6571F192EB80002FB45 /* Flee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F59DF65A1F192EB80002FB45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F59DF65C1F192EB80002FB45 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F59DF6601F192EB80002FB45 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 		F59DF6581F192EB80002FB45 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F59DF6571F192EB80002FB45 /* SoundMind.app */,
+				F59DF6571F192EB80002FB45 /* Flee.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -284,9 +284,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F59DF6561F192EB80002FB45 /* SoundMind */ = {
+		F59DF6561F192EB80002FB45 /* Flee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F59DF66F1F192EB80002FB45 /* Build configuration list for PBXNativeTarget "SoundMind" */;
+			buildConfigurationList = F59DF66F1F192EB80002FB45 /* Build configuration list for PBXNativeTarget "Flee" */;
 			buildPhases = (
 				F59DF6531F192EB80002FB45 /* Sources */,
 				F59DF6541F192EB80002FB45 /* Frameworks */,
@@ -296,9 +296,9 @@
 			);
 			dependencies = (
 			);
-			name = SoundMind;
+			name = Flee;
 			productName = DropCharge;
-			productReference = F59DF6571F192EB80002FB45 /* SoundMind.app */;
+			productReference = F59DF6571F192EB80002FB45 /* Flee.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -316,7 +316,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F59DF6521F192EB80002FB45 /* Build configuration list for PBXProject "SoundMind" */;
+			buildConfigurationList = F59DF6521F192EB80002FB45 /* Build configuration list for PBXProject "Flee" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -329,7 +329,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F59DF6561F192EB80002FB45 /* SoundMind */,
+				F59DF6561F192EB80002FB45 /* Flee */,
 			);
 		};
 /* End PBXProject section */
@@ -584,7 +584,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F59DF6521F192EB80002FB45 /* Build configuration list for PBXProject "SoundMind" */ = {
+		F59DF6521F192EB80002FB45 /* Build configuration list for PBXProject "Flee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F59DF66D1F192EB80002FB45 /* Debug */,
@@ -593,7 +593,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F59DF66F1F192EB80002FB45 /* Build configuration list for PBXNativeTarget "SoundMind" */ = {
+		F59DF66F1F192EB80002FB45 /* Build configuration list for PBXNativeTarget "Flee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F59DF6701F192EB80002FB45 /* Debug */,
