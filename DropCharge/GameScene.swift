@@ -487,7 +487,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       if let platform = other.node as? SKSpriteNode {
           platformAction(platform, breakable: true)
           slowPlayer()
-          platform.removeFromParent()
+        //  platform.removeFromParent()
 
 
       }
