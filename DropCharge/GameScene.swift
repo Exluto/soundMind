@@ -44,6 +44,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var breakArrow: SKSpriteNode!
   var break5Across: SKSpriteNode!
   var breakDiagonal: SKSpriteNode!
+  var break5Meteor: SKSpriteNode!
+  var break5MeteorLeft: SKSpriteNode!
+  var break5MeteorRight: SKSpriteNode!
   var coin5Across: SKSpriteNode!
   var coinDiagonal: SKSpriteNode!
   var coinCross: SKSpriteNode!
@@ -136,6 +139,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     breakArrow = loadForegroundOverlayTemplate("BreakArrow")
     break5Across = loadForegroundOverlayTemplate("Break5Across")
     breakDiagonal = loadForegroundOverlayTemplate("BreakDiagonal")
+    break5Meteor = loadForegroundOverlayTemplate("Break5Meteor")
+    break5MeteorLeft = loadForegroundOverlayTemplate("Break5Meteor Left")
+    break5MeteorRight = loadForegroundOverlayTemplate("Break5Meteor Right")
+    
     
     coinAnimation = setupAnimationWithPrefix("powerup05_", start: 1, end: 6, timePerFrame: 0.15, duration: 10000)
     coinSpecialAnimation = setupAnimationWithPrefix("powerup01_", start: 1, end: 1, timePerFrame: 0.083, duration: 10000)
@@ -276,6 +283,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           overlaySprite = breakDiagonal
         case 3:
           overlaySprite = breakDiagonal
+        case 4:
+          overlaySprite = break5Meteor
+        case 5:
+          overlaySprite = break5MeteorLeft
+        case 6:
+          overlaySprite = break5MeteorRight
           flipH = true
         default:
           overlaySprite = breakArrow
