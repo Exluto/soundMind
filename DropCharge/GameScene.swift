@@ -454,7 +454,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func superBoostPlayer() {
     setPlayerVelocity(1700)
-    posWall += 300
+    posWall += 1400
   }
   
   func didBegin(_ contact: SKPhysicsContact) {
