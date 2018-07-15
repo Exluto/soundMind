@@ -462,17 +462,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func didEnd(_ contact: SKPhysicsContact) {
-    let torp =  contact.bodyA.categoryBitMask == PhysicsCategory.Torpedo ? contact.bodyB : contact.bodyA
-    
-    
-    switch torp.categoryBitMask{
-    case PhysicsCategory.PlatformBreakable:
-      if (torp.node as? SKSpriteNode) != nil {
-        (torp.node as! SKSpriteNode).removeFromParent()
-        print("hi")
-      }
-    default:
-      break
+    if (contact.bodyA.categoryBitMask == PhysicsCategory.Torpedo){
+      contact.bodyA.node!.removeFromParent()
+      print("hi")
       
     }
   }
@@ -481,6 +473,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func didBegin(_ contact: SKPhysicsContact) {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
+    
    
     switch other.categoryBitMask {
     case PhysicsCategory.CoinNormal:
@@ -579,23 +572,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     torpedoNode.physicsBody?.isDynamic = true
     
     torpedoNode.physicsBody?.categoryBitMask = PhysicsCategory.Torpedo
-  //  torpedoNode.physicsBody?.contactTestBitMask = alienCategory
-    torpedoNode.physicsBody?.collisionBitMask = 0
+    torpedoNode.physicsBody?.contactTestBitMask = PhysicsCategory.Torpedo
+    //torpedoNode.physicsBody?.collisionBitMask = 0
     torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
     torpedoNode.physicsBody?.affectedByGravity = false
     
     self.addChild(torpedoNode)
     
-  //  let animationDuration:TimeInterval = 0.3
-    
-    
-   // var actionArray = [SKAction]()
-    
-  //  actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: self.frame.size.height + 10), duration: animationDuration))
-  //  actionArray.append(SKAction.removeFromParent())
-    
- //   torpedoNode.run(SKAction.sequence(actionArray))
-    
+
     
     
   }
