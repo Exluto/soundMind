@@ -563,7 +563,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func fireTorpedo() {
     
-    torpedoNode = SKSpriteNode(imageNamed: "player01_jump_2")
+    torpedoNode = SKSpriteNode(imageNamed: "block_break01_piece02")
     torpedoNode.position = player.position
     torpedoNode.zPosition = 10
     
