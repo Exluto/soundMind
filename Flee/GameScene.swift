@@ -89,6 +89,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let soundBrick = SKAction.playSoundFileNamed("brick.caf", waitForCompletion: false)
   let soundGameOver = SKAction.playSoundFileNamed("player_die.wav", waitForCompletion: false)
   
+  // torpedo collision
+  let playerFiredBulletCategory: UInt32 = 0x1 << 1
+  let playerCategory: UInt32 = 0x1 << 2
+  let SceneEdgeCategory: UInt32 = 0x1 << 3
+  
   var coinAnimation: SKAction!
   var coinSpecialAnimation: SKAction!
  
@@ -565,6 +570,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     torpedoNode.physicsBody?.affectedByGravity = false
 
    self.addChild(torpedoNode)
+    
+    torpedoNode.physicsBody = SKPhysicsBody(rectangleOf: torpedoNode.frame.size)
   }
   
   func activateForceField(){
@@ -625,6 +632,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     activateForceField()
     player.run(SKAction.repeatForever(self.playerAnimationJump))
+    
+    // sets the physics body of the scene
+    physicsBody! .categoryBitMask = SceneEdgeCategory
+    
+    player.physicsBody!.categoryBitMask = playerCategory
+    player.physicsBody!.contactTestBitMask = 0x0
+    player.physicsBody!.collisionBitMask = SceneEdgeCategory
     
     setPlayerVelocity(350)
     let deathY = maxY - posWall
