@@ -73,6 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var deltaTime: TimeInterval = 0
   var lives = 1
   
+  
   var maxY: CGFloat = 0.0
   var posWall: CGFloat = 1200.0
   var playerTrail: SKEmitterNode!
@@ -113,6 +114,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     didSet {
       scoreLabel.text = "Score: \(score)"
     }
+    
+  }
+  
+  var hscoreLabel:SKLabelNode!
+  var hscore:Int = 500 {
+    didSet {
+      scoreLabel.text = "Highcore: \(hscore)"
+    }
   }
   
   // MARK: - Setup
@@ -136,6 +145,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     score = 0
     
     self.addChild(scoreLabel)
+    
+    hscoreLabel = SKLabelNode(text: "0")
+    
+    hscoreLabel.fontName = "AmericanTypewriter-Bold"
+    hscoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
+    hscoreLabel.zPosition = 11
+    hscoreLabel.fontSize = 36
+    hscoreLabel.fontColor = UIColor.white
+    hscore = 400
+    
+    self.addChild(hscoreLabel)
     
     
     
@@ -710,7 +730,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   
   func updateLevel() {
+    
+    if(score > hscore){
+      hscore = score
+    }
     scoreLabel.position = CGPoint(x: camera!.position.x, y: camera!.position.y + 800)
+    if((gameState == .waitingForTap) && score > hscore){
+    hscoreLabel.position = CGPoint(x: camera!.position.x, y: camera!.position.y + 600)
+    scoreLabel.position = CGPoint(x: camera!.position.x, y: camera!.position.y + 800)
+    }
+    
     let cameraPos = camera!.position
     if cameraPos.y > levelPositionY - size.height {
       createBackgroundOverlay()
