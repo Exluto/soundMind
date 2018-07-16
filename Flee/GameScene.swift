@@ -103,6 +103,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // init touch queue to an empty array
   var touchQueue = [Int]()
   
+  // for bullets
+  enum TorpedoType {
+    case shipFired
+  }
+  let kShipFiredBulletName = "shipFiredBullet"
+  let kBulletSize = CGSize(width: 4, height: 8)
+  
   var scoreLabel:SKLabelNode!
   var score:Int = 0 {
     didSet {
@@ -566,7 +573,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         touchQueue.append(1)
       }
     }
+  }
+  
+  func makeTorpedo(ofType TorpedoType: TorpedoType) -> SKNode {
+    var torpedo: SKNode
     
+    switch TorpedoType {
+    case .shipFired:
+      torpedo = SKSpriteNode(color: SKColor.green, size: kBulletSize)
+      torpedo.name = kShipFiredBulletName
+      break
+    }
+    return torpedo
+  }
+  
+  func FireTorpedo(torpedo: SKNode, toDestination destination: CGPoint, withDuration duration: CFTimeInterval, andSoundFileName soundName: String) {
+    // one
+    let torpedoAction = SKAction.sequence([
+      SKAction.move(to: destination, duration: duration),
+      SKAction.wait(forDuration: 3.0 / 60.0),
+      SKAction.removeFromParent()
+    ])
+    
+    // two
+   // let soundAction = SKAction.playSoundFileNamed(soundName, waitforCompletion: true)
+    // three
+    torpedo.run(SKAction.group([torpedoAction]))
+    addChild(torpedo)
   }
   
   func activateForceField(){
