@@ -593,7 +593,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func activateForceField(){
-    if score == 25{
+    if score == 200 && score <= 220{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    } else if score == 400 && score <= 420{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    } else if score == 600 && score <= 620{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    } else if score == 800 && score <= 820{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    } else if score == 1000 && score <= 1020{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    }else if score == 1200 && score <= 1220{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    }else if score == 1400 && score <= 1420{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    }else if score == 1600 && score <= 1620{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    }else if score == 1800 && score <= 1820{
       func forceBoost() {
         setPlayerVelocity(2000)
         posWall += 60
