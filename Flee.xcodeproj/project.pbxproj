@@ -14,6 +14,7 @@
 		B83623AC20F9A2A600BEFB0B /* Break5Meteor.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AB20F9A2A600BEFB0B /* Break5Meteor.sks */; };
 		B83623AF20F9A32200BEFB0B /* Break5Meteor Left.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AD20F9A32200BEFB0B /* Break5Meteor Left.sks */; };
 		B83623B020F9A32200BEFB0B /* Break5Meteor Right.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AE20F9A32200BEFB0B /* Break5Meteor Right.sks */; };
+		B863410920FC638F00E45FBD /* fleeTheme.au in Resources */ = {isa = PBXBuildFile; fileRef = B863410820FC638F00E45FBD /* fleeTheme.au */; };
 		F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FAF1F197015003DE4CD /* Platform5Across.sks */; };
 		F5088FB21F1972BA003DE4CD /* CoinArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FB11F1972BA003DE4CD /* CoinArrow.sks */; };
 		F5088FC01F197722003DE4CD /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */; };
@@ -77,6 +78,7 @@
 		B83623AB20F9A2A600BEFB0B /* Break5Meteor.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Break5Meteor.sks; sourceTree = "<group>"; };
 		B83623AD20F9A32200BEFB0B /* Break5Meteor Left.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Break5Meteor Left.sks"; sourceTree = "<group>"; };
 		B83623AE20F9A32200BEFB0B /* Break5Meteor Right.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Break5Meteor Right.sks"; sourceTree = "<group>"; };
+		B863410820FC638F00E45FBD /* fleeTheme.au */ = {isa = PBXFileReference; lastKnownFileType = audio.au; name = fleeTheme.au; path = ../../../../../Downloads/fleeTheme.au; sourceTree = "<group>"; };
 		F5088FAF1F197015003DE4CD /* Platform5Across.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Platform5Across.sks; sourceTree = "<group>"; };
 		F5088FB11F1972BA003DE4CD /* CoinArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinArrow.sks; sourceTree = "<group>"; };
 		F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		F5B06F911F1FC53C0033F5DA /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				B863410820FC638F00E45FBD /* fleeTheme.au */,
 				F5B06F921F1FC53C0033F5DA /* alarm.wav */,
 				F5B06F931F1FC53C0033F5DA /* attribution.txt */,
 				F5B06F941F1FC53C0033F5DA /* bgMusic.mp3 */,
@@ -356,6 +359,7 @@
 				B83623AA20F98FB300BEFB0B /* Images.xcassets in Resources */,
 				F5B06FB51F1FC53D0033F5DA /* tickTock.wav in Resources */,
 				F5B06FAD1F1FC53D0033F5DA /* explosion1.wav in Resources */,
+				B863410920FC638F00E45FBD /* fleeTheme.au in Resources */,
 				F57BE02E1F1D8088002A95DD /* CoinSCross.sks in Resources */,
 				F5A10EFD1F2123FE00324600 /* CoinSpecial.sks in Resources */,
 				F57BE0281F1D7ED1002A95DD /* CoinCross.sks in Resources */,
