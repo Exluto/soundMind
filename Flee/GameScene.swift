@@ -84,12 +84,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // Sound Effects
   let soundStarDrop = SKAction.playSoundFileNamed("bombDrop.wav", waitForCompletion: true)
   let soundSuperBoost = SKAction.playSoundFileNamed("nitro.wav", waitForCompletion: false)
-  let soundTickTock = SKAction.playSoundFileNamed("tickTock.wav", waitForCompletion: true)
+  let soundTickTock = SKAction.playSoundFileNamed("boostSound.wav", waitForCompletion: true)
   let soundBoost = SKAction.playSoundFileNamed("boost.wav", waitForCompletion: false)
-  let soundJump = SKAction.playSoundFileNamed("jump.wav", waitForCompletion: false)
+  let soundJump = SKAction.playSoundFileNamed("boostSound2.wav", waitForCompletion: false)
   let soundCoin = SKAction.playSoundFileNamed("coin1.wav", waitForCompletion: false)
   let soundBrick = SKAction.playSoundFileNamed("brick.caf", waitForCompletion: false)
   let soundGameOver = SKAction.playSoundFileNamed("player_die.wav", waitForCompletion: false)
+  
   
   // torpedo collision
   let playerFiredBulletCategory: UInt32 = 0x1 << 1
@@ -438,6 +439,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     gameState = .playing
     player.physicsBody!.isDynamic = true
     superBoostPlayer()
+    run(SKAction.sequence([
+      soundSuperBoost,
+      ]))
 
     let music = SKAudioNode(fileNamed: "fleeTheme.mp3")
     music.name = "music"
@@ -474,8 +478,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func jumpPlayer() {
-    setPlayerVelocity(1200)
-    posWall += 120
+    setPlayerVelocity(800)
+    posWall += 60
   }
   func slowPlayer() {
     if(gameState == .playing){
@@ -485,14 +489,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func boostPlayer() {
-    setPlayerVelocity(800)
-    posWall += 60
+    setPlayerVelocity(1200)
+    posWall += 320
     
   }
   
   func superBoostPlayer() {
     setPlayerVelocity(1500)
-    posWall += 1200
+    posWall += 800
   }
   
   func didEnd(_ contact: SKPhysicsContact) {

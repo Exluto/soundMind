@@ -14,7 +14,9 @@
 		B83623AC20F9A2A600BEFB0B /* Break5Meteor.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AB20F9A2A600BEFB0B /* Break5Meteor.sks */; };
 		B83623AF20F9A32200BEFB0B /* Break5Meteor Left.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AD20F9A32200BEFB0B /* Break5Meteor Left.sks */; };
 		B83623B020F9A32200BEFB0B /* Break5Meteor Right.sks in Resources */ = {isa = PBXBuildFile; fileRef = B83623AE20F9A32200BEFB0B /* Break5Meteor Right.sks */; };
-		B849C65E20FD2EF6003A31A7 /* fleeTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B849C65D20FD2EF6003A31A7 /* fleeTheme.mp3 */; };
+		B849C66120FD4643003A31A7 /* fleeTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B849C65F20FD4642003A31A7 /* fleeTheme.mp3 */; };
+		B849C66220FD4643003A31A7 /* boostSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = B849C66020FD4643003A31A7 /* boostSound.wav */; };
+		B849C66420FD4863003A31A7 /* boostSound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = B849C66320FD4863003A31A7 /* boostSound2.wav */; };
 		F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FAF1F197015003DE4CD /* Platform5Across.sks */; };
 		F5088FB21F1972BA003DE4CD /* CoinArrow.sks in Resources */ = {isa = PBXBuildFile; fileRef = F5088FB11F1972BA003DE4CD /* CoinArrow.sks */; };
 		F5088FC01F197722003DE4CD /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */; };
@@ -78,7 +80,9 @@
 		B83623AB20F9A2A600BEFB0B /* Break5Meteor.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Break5Meteor.sks; sourceTree = "<group>"; };
 		B83623AD20F9A32200BEFB0B /* Break5Meteor Left.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Break5Meteor Left.sks"; sourceTree = "<group>"; };
 		B83623AE20F9A32200BEFB0B /* Break5Meteor Right.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Break5Meteor Right.sks"; sourceTree = "<group>"; };
-		B849C65D20FD2EF6003A31A7 /* fleeTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fleeTheme.mp3; sourceTree = "<group>"; };
+		B849C65F20FD4642003A31A7 /* fleeTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fleeTheme.mp3; sourceTree = "<group>"; };
+		B849C66020FD4643003A31A7 /* boostSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boostSound.wav; sourceTree = "<group>"; };
+		B849C66320FD4863003A31A7 /* boostSound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boostSound2.wav; sourceTree = "<group>"; };
 		F5088FAF1F197015003DE4CD /* Platform5Across.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Platform5Across.sks; sourceTree = "<group>"; };
 		F5088FB11F1972BA003DE4CD /* CoinArrow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinArrow.sks; sourceTree = "<group>"; };
 		F5088FB41F197722003DE4CD /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
@@ -243,14 +247,16 @@
 		F5B06F911F1FC53C0033F5DA /* sounds */ = {
 			isa = PBXGroup;
 			children = (
-				B849C65D20FD2EF6003A31A7 /* fleeTheme.mp3 */,
 				F5B06F921F1FC53C0033F5DA /* alarm.wav */,
 				F5B06F931F1FC53C0033F5DA /* attribution.txt */,
+				B849C66320FD4863003A31A7 /* boostSound2.wav */,
 				F5B06F941F1FC53C0033F5DA /* bgMusic.mp3 */,
 				F5B06F951F1FC53C0033F5DA /* bombDrop.wav */,
 				F5B06F961F1FC53C0033F5DA /* boost.wav */,
 				F5B06F971F1FC53C0033F5DA /* brick.caf */,
 				F5B06F981F1FC53C0033F5DA /* coin1.wav */,
+				B849C66020FD4643003A31A7 /* boostSound.wav */,
+				B849C65F20FD4642003A31A7 /* fleeTheme.mp3 */,
 				F5B06F991F1FC53C0033F5DA /* coin4.wav */,
 				F5B06F9A1F1FC53C0033F5DA /* DrownFireBug.mp3 */,
 				F5B06F9B1F1FC53C0033F5DA /* explosion1.wav */,
@@ -338,7 +344,7 @@
 				F59DF6661F192EB80002FB45 /* Main.storyboard in Resources */,
 				F59DF65D1F192EB80002FB45 /* GameScene.sks in Resources */,
 				F59DF6681F192EB80002FB45 /* Assets.xcassets in Resources */,
-				B849C65E20FD2EF6003A31A7 /* fleeTheme.mp3 in Resources */,
+				B849C66120FD4643003A31A7 /* fleeTheme.mp3 in Resources */,
 				F57BE0261F1D7E70002A95DD /* CoinDiagonal.sks in Resources */,
 				F5B06FA61F1FC53D0033F5DA /* bgMusic.mp3 in Resources */,
 				F5B06FA91F1FC53D0033F5DA /* brick.caf in Resources */,
@@ -351,6 +357,7 @@
 				847847F820F8440800D48AC0 /* Assets.xcassets in Resources */,
 				F51EC0171F1D799A00CA3320 /* CoinSArrow.sks in Resources */,
 				F5B06FA71F1FC53D0033F5DA /* bombDrop.wav in Resources */,
+				B849C66220FD4643003A31A7 /* boostSound.wav in Resources */,
 				F59DF66B1F192EB80002FB45 /* LaunchScreen.storyboard in Resources */,
 				F57BE01C1F1D7AB9002A95DD /* PlatformArrow.sks in Resources */,
 				F57BE02A1F1D7F7F002A95DD /* CoinS5Across.sks in Resources */,
@@ -368,6 +375,7 @@
 				F5088FB01F197015003DE4CD /* Platform5Across.sks in Resources */,
 				B83623AF20F9A32200BEFB0B /* Break5Meteor Left.sks in Resources */,
 				F5B06FB01F1FC53D0033F5DA /* explosion4.wav in Resources */,
+				B849C66420FD4863003A31A7 /* boostSound2.wav in Resources */,
 				F5B06FAF1F1FC53D0033F5DA /* explosion3.wav in Resources */,
 				F5B06FA41F1FC53D0033F5DA /* alarm.wav in Resources */,
 			);
