@@ -569,29 +569,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
   }
   
-  func fireTorpedo() {
-    
-    torpedoNode = SKSpriteNode(imageNamed: "block_break01_piece02")
-    torpedoNode.position = player.position
-    torpedoNode.zPosition = 10
-    
-    
-    torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
-    torpedoNode.physicsBody?.isDynamic = true
-    
-    torpedoNode.physicsBody?.categoryBitMask = PhysicsCategory.Torpedo
-    torpedoNode.physicsBody?.contactTestBitMask = PhysicsCategory.Torpedo
-    //torpedoNode.physicsBody?.collisionBitMask = 0
-    torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
-    torpedoNode.physicsBody?.affectedByGravity = false
-    
-    self.addChild(torpedoNode)
-    
-
-    
-    
-  }
-  
   func activateForceField(){
     if score == 200 && score <= 220{
       func forceBoost() {
@@ -643,10 +620,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func updatePlayer() {
-    if(torpedoNode != nil){
-      torpedoNode.position.y += 100
-      
-    }
     
     player.run(SKAction.repeatForever(self.playerAnimationJump))
     
