@@ -710,7 +710,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   
   func updateLevel() {
-    scoreLabel.position = CGPoint(x: player.position.x + player.size.height, y: player.position.y + player.size.height)
+    scoreLabel.position = CGPoint(x: camera!.position.x, y: camera!.position.y + 800)
     let cameraPos = camera!.position
     if cameraPos.y > levelPositionY - size.height {
       createBackgroundOverlay()
