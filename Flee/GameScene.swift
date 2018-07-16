@@ -159,9 +159,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     self.addChild(hscoreLabel)
     
-    
-    
-    playerAnimationJump = setupAnimationWithPrefix("player_fly_", start: 23, end: 25, timePerFrame: 0.1)
+    playerAnimationJump = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1)
     playerAnimationFall = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1)
     playerAnimationSteerLeft = setupAnimationWithPrefix("player_fly_", start: 21, end: 22, timePerFrame: 0.1)
     playerAnimationSteerRight = setupAnimationWithPrefix("player_fly_", start: 24, end: 25, timePerFrame: 0.1)
@@ -712,7 +710,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     activateForceField()
-    player.run(SKAction.repeatForever(self.playerAnimationJump))
+    //player.run(SKAction.repeatForever(self.playerAnimationJump))
     
     // sets the physics body of the scene
     physicsBody! .categoryBitMask = SceneEdgeCategory
@@ -771,8 +769,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     // Animate player
     if playerState == .jump {
-      if abs(player.physicsBody!.velocity.dx) > 10.0 {
-        if player.physicsBody!.velocity.dy > 0 {
+      if abs(player.physicsBody!.velocity.dx) > 100.0 {
+        if player.physicsBody!.velocity.dx > 0 {
           runPlayerAnimation(playerAnimationSteerRight)
           print("das works?")
         } else {
