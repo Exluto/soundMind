@@ -37,6 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var player: SKSpriteNode!
   var torpedoNode: SKSpriteNode!
   var deathwall: SKSpriteNode!
+  var forceField: SKSpriteNode!
   
   var platform5Across: SKSpriteNode!
   var coinArrow: SKSpriteNode!
@@ -581,6 +582,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 
     
+    
+  }
+  
+  func activateForceField(){
+    if score == 25{
+      func forceBoost() {
+        setPlayerVelocity(2000)
+        posWall += 60
+      }
+    }
     
   }
   
