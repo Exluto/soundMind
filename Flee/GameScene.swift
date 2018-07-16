@@ -583,37 +583,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       
     } else if score >= 600 && score <= 620{
       
-        setPlayerVelocity(2000)
+        setPlayerVelocity(1000)
         posWall += 60
       
     } else if score >= 800 && score <= 820{
       
-        setPlayerVelocity(2000)
+        setPlayerVelocity(1000)
         posWall += 60
       
     } else if score >= 1000 && score <= 1020{
       
-        setPlayerVelocity(2000)
+        setPlayerVelocity(1000)
         posWall += 60
       
     }else if score >= 1200 && score <= 1220{
       
-        setPlayerVelocity(2000)
+        setPlayerVelocity(1000)
         posWall += 60
       
     }else if score >= 1400 && score <= 1420{
       
-        setPlayerVelocity(2000)
+        setPlayerVelocity(1000)
         posWall += 60
       
     }else if score >= 1600 && score <= 1620{
       
-        setPlayerVelocity(2000)
+        setPlayerVelocity(1000)
         posWall += 60
       
     }else if score >= 1800 && score <= 1820{
       
-        setPlayerVelocity(2000)
+        setPlayerVelocity(1000)
         posWall += 60
       
     }
