@@ -575,33 +575,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
   }
   
-  func makeTorpedo(ofType TorpedoType: TorpedoType) -> SKNode {
-    var torpedo: SKNode
-    
-    switch TorpedoType {
-    case .shipFired:
-      torpedo = SKSpriteNode(color: SKColor.green, size: kBulletSize)
-      torpedo.name = kShipFiredBulletName
-      break
-    }
-    return torpedo
-  }
-  
-  func FireTorpedo(torpedo: SKNode, toDestination destination: CGPoint, withDuration duration: CFTimeInterval, andSoundFileName soundName: String) {
-    // one
-    let torpedoAction = SKAction.sequence([
-      SKAction.move(to: destination, duration: duration),
-      SKAction.wait(forDuration: 3.0 / 60.0),
-      SKAction.removeFromParent()
-    ])
-    
-    // two
-   // let soundAction = SKAction.playSoundFileNamed(soundName, waitforCompletion: true)
-    // three
-    torpedo.run(SKAction.group([torpedoAction]))
-    addChild(torpedo)
-  }
-  
   func activateForceField(){
     if score >= 200 && score <= 240{
       
