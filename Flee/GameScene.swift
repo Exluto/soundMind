@@ -161,10 +161,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    playerAnimationJump = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1, duration: 10000)
-    playerAnimationFall = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1, duration: 10000)
-    playerAnimationSteerLeft = setupAnimationWithPrefix("player_fly_", start: 21, end: 22, timePerFrame: 0.1, duration: 10000)
-    playerAnimationSteerRight = setupAnimationWithPrefix("player_fly_", start: 24, end: 25, timePerFrame: 0.1, duration: 10000)
+    playerAnimationJump = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1)
+    playerAnimationFall = setupAnimationWithPrefix("player_fly_", start: 23, end: 23, timePerFrame: 0.1)
+    playerAnimationSteerLeft = setupAnimationWithPrefix("player_fly_", start: 21, end: 22, timePerFrame: 0.1)
+    playerAnimationSteerRight = setupAnimationWithPrefix("player_fly_", start: 24, end: 25, timePerFrame: 0.1)
   }
   
   func setupNodes() {
@@ -190,8 +190,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     break5MeteorRight = loadForegroundOverlayTemplate("Break5Meteor Right")
     
     
-    coinAnimation = setupAnimationWithPrefix("powerup05_", start: 1, end: 6, timePerFrame: 0.15, duration: 10000)
-    coinSpecialAnimation = setupAnimationWithPrefix("powerup01_", start: 1, end: 1, timePerFrame: 0.083, duration: 10000)
+    coinAnimation = setupAnimationWithPrefix("powerup05_", start: 1, end: 6, timePerFrame: 0.15)
+    coinSpecialAnimation = setupAnimationWithPrefix("powerup01_", start: 1, end: 1, timePerFrame: 0.083)
     
     coin5Across = loadForegroundOverlayTemplate("Coin5Across")
     coinDiagonal = loadForegroundOverlayTemplate("CoinDiagonal")
@@ -475,7 +475,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func jumpPlayer() {
-    setPlayerVelocity(500)
+    setPlayerVelocity(800)
     posWall += 60
   }
   func slowPlayer() {
@@ -486,7 +486,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func boostPlayer() {
-    setPlayerVelocity(1000)
+    setPlayerVelocity(1200)
     posWall += 120
     
   }
@@ -747,7 +747,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       lives -= 1
     }
     // Set velocity based on core motion
-    player.physicsBody?.velocity.dx = xAcceleration * 2500.0
+    player.physicsBody?.velocity.dx = xAcceleration * 3700.0
     
     // Wrap player around edges of screen
     var playerPosition = convert(player.position, from: fgNode)
@@ -773,6 +773,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       if abs(player.physicsBody!.velocity.dx) > 100.0 {
         if player.physicsBody!.velocity.dx > 0 {
           runPlayerAnimation(playerAnimationSteerRight)
+          print("works?")
         } else {
           runPlayerAnimation(playerAnimationSteerLeft)
         }
@@ -823,7 +824,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   
   // MARK: - Animation
-  func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval, duration: Float) -> SKAction {
+  func setupAnimationWithPrefix(_ prefix: String, start: Int, end: Int, timePerFrame: TimeInterval) -> SKAction {
     var textures: [SKTexture] = []
     for i in start...end {
       textures.append(SKTexture(imageNamed: "\(prefix)\(i)"))
