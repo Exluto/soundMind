@@ -26,6 +26,7 @@ struct PhysicsCategory {
   static let CoinSpecial: UInt32       = 0b10000  // 16
   static let Edges: UInt32             = 0b100000 // 32
   static let Torpedo: UInt32           = 0b1000000 //64
+  static let forceField: UInt32        = 0b10000000 // 128
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -122,6 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupNodes()
     setupLevel()
     setupPlayer()
+    setupForceField()
     setupCoreMotion()
     //playBackgroundMusic(name: "fleeTheme.caf")
     physicsWorld.contactDelegate = self
@@ -156,6 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     player = fgNode.childNode(withName: "Player") as! SKSpriteNode
     setupDeathwall()
     fgNode.childNode(withName: "Star")?.run(SKAction.hide())
+    forceField = fgNode.childNode(withName: "forceField") as! SKSpriteNode
 
     
     platformArrow = loadForegroundOverlayTemplate("PlatformArrow")
@@ -220,6 +223,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     player.physicsBody!.collisionBitMask = 0
     
    
+  }
+  
+  func setupForceField(){
+    forceField.physicsBody = SKPhysicsBody(circleOfRadius: forceField.size.width * 1)
+    forceField.physicsBody!.isDynamic = false
+    forceField.physicsBody!.allowsRotation = true
+    forceField.physicsBody!.categoryBitMask = PhysicsCategory.forceField
+    
   }
   
   func setupDeathwall() {
@@ -402,9 +413,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func startGame() {
     let star = fgNode.childNode(withName: "Star")!
+    let forceField = fgNode.childNode(withName: "forceField")!
 
-
-
+    forceField.isHidden = true
     star.removeFromParent()
    
     gameState = .playing
@@ -603,51 +614,96 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func activateForceField(){
-    if score >= 200 && score <= 240{
-      
+    if score >= 200 && score <= 230{
         setPlayerVelocity(1000)
         posWall += 60
+        forceField.isHidden = false
+        
         print("yass")
       
-    } else if score >= 400 && score <= 440{
+    }else if score >= 230 && score <= 400{
+      
+      forceField.isHidden = true
+      
+    } else if score >= 400 && score <= 430{
+        forceField.isHidden = false
+        setPlayerVelocity(1000)
+        posWall += 60
+        
+      
+    } else if score >= 430 && score <= 600{
+      forceField.isHidden = true
+      
+      
+    }else if score >= 600 && score <= 630{
       
         setPlayerVelocity(1000)
         posWall += 60
+        forceField.isHidden = false
       
-    } else if score >= 600 && score <= 620{
+    } else if score >= 630 && score <= 800{
       
-        setPlayerVelocity(1000)
-        posWall += 60
+      forceField.isHidden = true
       
-    } else if score >= 800 && score <= 820{
-      
-        setPlayerVelocity(1000)
-        posWall += 60
-      
-    } else if score >= 1000 && score <= 1020{
+    }else if score >= 800 && score <= 830{
       
         setPlayerVelocity(1000)
         posWall += 60
+        forceField.isHidden = false
       
-    }else if score >= 1200 && score <= 1220{
+    } else if score >= 830 && score <= 1000{
       
-        setPlayerVelocity(1000)
-        posWall += 60
+      forceField.isHidden = true
       
-    }else if score >= 1400 && score <= 1420{
-      
-        setPlayerVelocity(1000)
-        posWall += 60
-      
-    }else if score >= 1600 && score <= 1620{
+    }else if score >= 1000 && score <= 1030{
       
         setPlayerVelocity(1000)
         posWall += 60
+        forceField.isHidden = false
       
-    }else if score >= 1800 && score <= 1820{
+    }else if score >= 1030 && score <= 1200{
+      
+      forceField.isHidden = true
+      
+    }else if score >= 1200 && score <= 1230{
       
         setPlayerVelocity(1000)
         posWall += 60
+        forceField.isHidden = false
+      
+    }else if score >= 1230 && score <= 1400{
+      
+      forceField.isHidden = true
+      
+    }else if score >= 1400 && score <= 1430{
+      
+        setPlayerVelocity(1000)
+        posWall += 60
+        forceField.isHidden = false
+      
+    }else if score >= 1430 && score <= 1600{
+      
+      forceField.isHidden = true
+      
+    }else if score >= 1600 && score <= 1630{
+      
+        setPlayerVelocity(1000)
+        posWall += 60
+        forceField.isHidden = false
+      
+    }else if score >= 1630 && score <= 1800{
+      
+      forceField.isHidden = true
+      
+    }else if score >= 1800 && score <= 1830{
+      
+        setPlayerVelocity(1000)
+        posWall += 60
+        forceField.isHidden = false
+      
+    }else if score >= 1830 && score <= 2000{
+      
+      forceField.isHidden = true
       
     }
     
@@ -660,6 +716,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     setPlayerVelocity(350)
     let deathY = maxY - posWall
+    forceField.position = player.position
     
     posWall -= 0.6
     
