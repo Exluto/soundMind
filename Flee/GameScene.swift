@@ -100,6 +100,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   let gameGain: CGFloat = 2.5
   var redAlertTime: TimeInterval = 0
+  // init touch queue to an empty array
+  var touchQueue = [Int]()
   
   var scoreLabel:SKLabelNode!
   var score:Int = 0 {
@@ -556,9 +558,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let scaledOverlap = scaledWidth - view.bounds.size.width
     return scaledOverlap / scale
   }
+
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    fireTorpedo()
+    if let touch = touches.first {
+      if(touch.tapCount == 1) {
+        touchQueue.append(1)
+      }
+    }
     
   }
   
