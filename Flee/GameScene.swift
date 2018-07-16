@@ -640,9 +640,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // sets the physics body of the scene
     physicsBody! .categoryBitMask = SceneEdgeCategory
     
-    player.physicsBody!.categoryBitMask = playerCategory
-    player.physicsBody!.contactTestBitMask = 0x0
-    player.physicsBody!.collisionBitMask = SceneEdgeCategory
+  //  player.physicsBody!.categoryBitMask = playerCategory
+   // player.physicsBody!.contactTestBitMask = 0x0
+   // player.physicsBody!.collisionBitMask = SceneEdgeCategory
     
     setPlayerVelocity(350)
     let deathY = maxY - posWall
