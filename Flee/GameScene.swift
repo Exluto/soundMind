@@ -348,6 +348,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           overlaySprite = breakArrow
         }
       }
+      
     } else {
       if Int.random(min: 1, max: 100) <= 60 {
         // Create standard coins 75%
