@@ -439,7 +439,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     player.physicsBody!.isDynamic = true
     superBoostPlayer()
 
-    let music = SKAudioNode(fileNamed: "fleeTheme.au")
+    let music = SKAudioNode(fileNamed: "fleeTheme.mp3")
     music.name = "music"
     music.autoplayLooped = true
     addChild(music)
