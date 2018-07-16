@@ -441,7 +441,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func jumpPlayer() {
-    setPlayerVelocity(650)
+    setPlayerVelocity(300)
     posWall += 60
   }
   func slowPlayer() {
@@ -452,14 +452,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func boostPlayer() {
-    setPlayerVelocity(1200)
+    setPlayerVelocity(750)
     posWall += 120
     
   }
   
   func superBoostPlayer() {
-    setPlayerVelocity(1700)
-    posWall += 1400
+    setPlayerVelocity(1000)
+    posWall += 1000
   }
   
   func didEnd(_ contact: SKPhysicsContact) {
@@ -502,7 +502,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     case PhysicsCategory.PlatformBreakable:
       if let platform = other.node as? SKSpriteNode {
-        //  platformAction(platform, breakable: true)
+          //platformAction(platform, breakable: true)
           slowPlayer()
       }
  
