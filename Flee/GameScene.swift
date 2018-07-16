@@ -103,13 +103,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // init touch queue to an empty array
   var touchQueue = [Int]()
   
-  // for bullets
-  enum TorpedoType {
-    case shipFired
-  }
-  let kShipFiredBulletName = "shipFiredBullet"
-  let kBulletSize = CGSize(width: 4, height: 8)
-  
   var scoreLabel:SKLabelNode!
   var score:Int = 0 {
     didSet {
@@ -438,11 +431,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     addChild(gameOverSprite)
     if let music = childNode(withName: "music") {
       music.removeFromParent()
-      
     }
-    
-   
-   
   }
   
   func setPlayerVelocity(_ amount: CGFloat) {
@@ -475,16 +464,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if (contact.bodyA.categoryBitMask == PhysicsCategory.Torpedo){
       contact.bodyA.node!.removeFromParent()
       print("hi")
-      
     }
   }
-    
-
   
   func didBegin(_ contact: SKPhysicsContact) {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     
-   
     switch other.categoryBitMask {
     case PhysicsCategory.CoinNormal:
       if (other.node as? SKSpriteNode) != nil {
@@ -497,8 +482,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     case PhysicsCategory.CoinSpecial:
       if (other.node as? SKSpriteNode) != nil {
         print(lives)
-        
-
         boostPlayer()
         run(soundBoost)
       }
@@ -541,10 +524,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       updateCamera()
       updateLevel()
       updatePlayer()
-
-
-
-     
     }
   }
   
@@ -568,11 +547,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if let touch = touches.first {
-      if(touch.tapCount == 1) {
-        touchQueue.append(1)
-      }
-    }
+    fireTorpedo()
+  }
+  
+  func fireTorpedo() {
+    torpedoNode = SKSpriteNode(imageNamed: "block_break01_piece02")
+    torpedoNode.position = player.position
+    torpedoNode.zPosition = 10
+    
+    torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
+    torpedoNode.physicsBody?.isDynamic = true
+
+    torpedoNode.physicsBody?.categoryBitMask = PhysicsCategory.Torpedo
+    torpedoNode.physicsBody?.contactTestBitMask = PhysicsCategory.Torpedo
+    //torpedoNode.physicsBody?.collisionBitMask = 0
+    torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
+    torpedoNode.physicsBody?.affectedByGravity = false
+
+   self.addChild(torpedoNode)
   }
   
   func activateForceField(){
@@ -627,6 +619,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func updatePlayer() {
+    if(torpedoNode != nil){
+      torpedoNode.position.y += 100
+    }
     
     activateForceField()
     player.run(SKAction.repeatForever(self.playerAnimationJump))
