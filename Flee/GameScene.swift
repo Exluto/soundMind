@@ -572,6 +572,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    self.addChild(torpedoNode)
     
     torpedoNode.physicsBody = SKPhysicsBody(rectangleOf: torpedoNode.frame.size)
+    torpedoNode.physicsBody!.isDynamic = true
+    torpedoNode.physicsBody!.affectedByGravity = false
+    torpedoNode.physicsBody!.categoryBitMask = playerFiredBulletCategory
+    torpedoNode.physicsBody!.categoryBitMask = 0x0
   }
   
   func activateForceField(){
