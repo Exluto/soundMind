@@ -474,8 +474,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func jumpPlayer() {
-    setPlayerVelocity(800)
-    posWall += 60
+    setPlayerVelocity(1200)
+    posWall += 120
   }
   func slowPlayer() {
     if(gameState == .playing){
@@ -485,8 +485,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func boostPlayer() {
-    setPlayerVelocity(1200)
-    posWall += 120
+    setPlayerVelocity(800)
+    posWall += 60
     
   }
   
