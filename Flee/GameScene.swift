@@ -74,6 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var deltaTime: TimeInterval = 0
   var lives = 1
   
+  
   var maxY: CGFloat = 0.0
   var posWall: CGFloat = 1200.0
   var playerTrail: SKEmitterNode!
@@ -90,6 +91,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let soundBrick = SKAction.playSoundFileNamed("brick.caf", waitForCompletion: false)
   let soundGameOver = SKAction.playSoundFileNamed("player_die.wav", waitForCompletion: false)
   
+  // torpedo collision
+  let playerFiredBulletCategory: UInt32 = 0x1 << 1
+  let playerCategory: UInt32 = 0x1 << 2
+  let SceneEdgeCategory: UInt32 = 0x1 << 3
+  
   var coinAnimation: SKAction!
   var coinSpecialAnimation: SKAction!
  
@@ -104,17 +110,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // init touch queue to an empty array
   var touchQueue = [Int]()
   
-  // for bullets
-  enum TorpedoType {
-    case shipFired
-  }
-  let kShipFiredBulletName = "shipFiredBullet"
-  let kBulletSize = CGSize(width: 4, height: 8)
-  
   var scoreLabel:SKLabelNode!
   var score:Int = 0 {
     didSet {
       scoreLabel.text = "Score: \(score)"
+    }
+    
+  }
+  
+  var hscoreLabel:SKLabelNode!
+  var hscore:Int = 500 {
+    didSet {
+      scoreLabel.text = "Highcore: \(hscore)"
     }
   }
   
@@ -140,6 +147,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     score = 0
     
     self.addChild(scoreLabel)
+    
+    hscoreLabel = SKLabelNode(text: "0")
+    
+    hscoreLabel.fontName = "AmericanTypewriter-Bold"
+    hscoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
+    hscoreLabel.zPosition = 11
+    hscoreLabel.fontSize = 36
+    hscoreLabel.fontColor = UIColor.white
+    hscore = 400
+    
+    self.addChild(hscoreLabel)
     
     
     
@@ -449,11 +467,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     addChild(gameOverSprite)
     if let music = childNode(withName: "music") {
       music.removeFromParent()
-      
     }
-    
-   
-   
   }
   
   func setPlayerVelocity(_ amount: CGFloat) {
@@ -486,16 +500,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     if (contact.bodyA.categoryBitMask == PhysicsCategory.Torpedo){
       contact.bodyA.node!.removeFromParent()
       print("hi")
-      
     }
   }
-    
-
   
   func didBegin(_ contact: SKPhysicsContact) {
     let other = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyB : contact.bodyA
     
-   
     switch other.categoryBitMask {
     case PhysicsCategory.CoinNormal:
       if (other.node as? SKSpriteNode) != nil {
@@ -508,8 +518,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     case PhysicsCategory.CoinSpecial:
       if (other.node as? SKSpriteNode) != nil {
         print(lives)
-        
-
         boostPlayer()
         run(soundBoost)
       }
@@ -552,10 +560,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       updateCamera()
       updateLevel()
       updatePlayer()
-
-
-
-     
     }
   }
   
@@ -579,38 +583,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if let touch = touches.first {
-      if(touch.tapCount == 1) {
-        touchQueue.append(1)
-      }
-    }
+    fireTorpedo()
   }
   
-  func makeTorpedo(ofType TorpedoType: TorpedoType) -> SKNode {
-    var torpedo: SKNode
+  func fireTorpedo() {
+    torpedoNode = SKSpriteNode(imageNamed: "block_break01_piece02")
+    torpedoNode.position = player.position
+    torpedoNode.zPosition = 10
     
-    switch TorpedoType {
-    case .shipFired:
-      torpedo = SKSpriteNode(color: SKColor.green, size: kBulletSize)
-      torpedo.name = kShipFiredBulletName
-      break
-    }
-    return torpedo
-  }
-  
-  func FireTorpedo(torpedo: SKNode, toDestination destination: CGPoint, withDuration duration: CFTimeInterval, andSoundFileName soundName: String) {
-    // one
-    let torpedoAction = SKAction.sequence([
-      SKAction.move(to: destination, duration: duration),
-      SKAction.wait(forDuration: 3.0 / 60.0),
-      SKAction.removeFromParent()
-    ])
+    torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
+    torpedoNode.physicsBody?.isDynamic = true
+
+    torpedoNode.physicsBody?.categoryBitMask = PhysicsCategory.Torpedo
+    torpedoNode.physicsBody?.contactTestBitMask = PhysicsCategory.Torpedo
+    //torpedoNode.physicsBody?.collisionBitMask = 0
+    torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
+    torpedoNode.physicsBody?.affectedByGravity = false
+
+   self.addChild(torpedoNode)
     
-    // two
-   // let soundAction = SKAction.playSoundFileNamed(soundName, waitforCompletion: true)
-    // three
-    torpedo.run(SKAction.group([torpedoAction]))
-    addChild(torpedo)
+    torpedoNode.physicsBody = SKPhysicsBody(rectangleOf: torpedoNode.frame.size)
+    torpedoNode.physicsBody!.isDynamic = true
+    torpedoNode.physicsBody!.affectedByGravity = false
+    torpedoNode.physicsBody!.categoryBitMask = playerFiredBulletCategory
+    torpedoNode.physicsBody!.categoryBitMask = 0x0
   }
   
   func activateForceField(){
@@ -710,9 +706,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func updatePlayer() {
+    if(torpedoNode != nil){
+      torpedoNode.position.y += 100
+    }
     
     activateForceField()
     player.run(SKAction.repeatForever(self.playerAnimationJump))
+    
+    // sets the physics body of the scene
+    physicsBody! .categoryBitMask = SceneEdgeCategory
+    
+  //  player.physicsBody!.categoryBitMask = playerCategory
+   // player.physicsBody!.contactTestBitMask = 0x0
+   // player.physicsBody!.collisionBitMask = SceneEdgeCategory
     
     setPlayerVelocity(350)
     let deathY = maxY - posWall
@@ -781,7 +787,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   
   func updateLevel() {
-    scoreLabel.position = CGPoint(x: player.position.x + player.size.height, y: player.position.y + player.size.height)
+    
+    if(score > hscore){
+      hscore = score
+    }
+    scoreLabel.position = CGPoint(x: camera!.position.x, y: camera!.position.y + 800)
+    if((gameState == .waitingForTap) && score > hscore){
+    hscoreLabel.position = CGPoint(x: camera!.position.x, y: camera!.position.y + 600)
+    scoreLabel.position = CGPoint(x: camera!.position.x, y: camera!.position.y + 800)
+    }
+    
     let cameraPos = camera!.position
     if cameraPos.y > levelPositionY - size.height {
       createBackgroundOverlay()
