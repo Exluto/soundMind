@@ -100,6 +100,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   let gameGain: CGFloat = 2.5
   var redAlertTime: TimeInterval = 0
+  // init touch queue to an empty array
+  var touchQueue = [Int]()
   
   var scoreLabel:SKLabelNode!
   var score:Int = 0 {
@@ -556,32 +558,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let scaledOverlap = scaledWidth - view.bounds.size.width
     return scaledOverlap / scale
   }
+
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    fireTorpedo()
-    
-  }
-  
-  func fireTorpedo() {
-    
-    torpedoNode = SKSpriteNode(imageNamed: "block_break01_piece02")
-    torpedoNode.position = player.position
-    torpedoNode.zPosition = 10
-    
-    
-    torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
-    torpedoNode.physicsBody?.isDynamic = true
-    
-    torpedoNode.physicsBody?.categoryBitMask = PhysicsCategory.Torpedo
-    torpedoNode.physicsBody?.contactTestBitMask = PhysicsCategory.Torpedo
-    //torpedoNode.physicsBody?.collisionBitMask = 0
-    torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
-    torpedoNode.physicsBody?.affectedByGravity = false
-    
-    self.addChild(torpedoNode)
-    
-
-    
+    if let touch = touches.first {
+      if(touch.tapCount == 1) {
+        touchQueue.append(1)
+      }
+    }
     
   }
   
@@ -637,10 +621,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func updatePlayer() {
-    if(torpedoNode != nil){
-      torpedoNode.position.y += 100
-      
-    }
     
     activateForceField()
     player.run(SKAction.repeatForever(self.playerAnimationJump))
